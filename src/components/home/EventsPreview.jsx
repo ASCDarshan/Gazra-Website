@@ -1,18 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Calendar, Clock, MapPin, ArrowRight, Users, Tag, ExternalLink } from 'lucide-react';
+/* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  ArrowRight,
+  Users,
+  Tag,
+  ExternalLink,
+} from "lucide-react";
 
 const EventCard = ({ event }) => (
-  <div className="group relative bg-white rounded-2xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-500 border border-neutral-100">
-    {/* Event Tag */}
+  <div className="group relative bg-white rounded-2xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-500 border border-neutral-100 flex flex-col h-full">
     <div className="absolute top-4 left-4 z-10">
       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-primary-600 shadow-soft">
         <Tag className="w-3 h-3 mr-1" />
         {event.category}
       </span>
     </div>
-    
-    {/* Image Container */}
+
     <div className="aspect-w-16 aspect-h-10 relative">
       <img
         src={event.image}
@@ -21,18 +27,17 @@ const EventCard = ({ event }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
-    
-    {/* Content */}
-    <div className="p-6 space-y-4">
-      {/* Title and Description */}
-      <div className="space-y-2">
+
+    <div className="p-6 flex flex-col flex-grow">
+      <div className="space-y-2 flex-grow">
         <h3 className="text-2xl font-display font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-300">
           {event.title}
         </h3>
-        <p className="text-neutral-600 line-clamp-3">{event.description}</p>
+        <p className="text-neutral-600 line-clamp-3 min-h-[72px]">
+          {event.description}
+        </p>
       </div>
 
-      {/* Event Details */}
       <div className="grid grid-cols-2 gap-4 py-4 border-t border-neutral-100">
         <div className="space-y-3">
           <div className="flex items-center text-sm text-neutral-600">
@@ -56,8 +61,7 @@ const EventCard = ({ event }) => (
         </div>
       </div>
 
-      {/* Action Button */}
-      <div className="flex items-center justify-between pt-2">
+      <div className="flex items-center justify-between pt-4 border-t border-neutral-100">
         {event.externalLink ? (
           <a
             href={event.externalLink}
@@ -70,7 +74,7 @@ const EventCard = ({ event }) => (
           </a>
         ) : (
           <Link
-            to={`/events/${event.id}`}
+            // to={`/events/${event.id}`}
             className="inline-flex items-center px-4 py-2 rounded-xl text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300"
           >
             Learn More
@@ -96,8 +100,9 @@ const EventsPreview = () => {
       location: "Hosted by GAZRA",
       capacity: "Limited Seats",
       image: "/images/samaaj.png",
-      description: "Join us for a groundbreaking dance-theater production that challenges norms and celebrates authenticity. Two Gujarati men confront their deepest insecurities and societal expectations while navigating love and self-discovery. A powerful blend of dance, poetry, and original music by Shivansh Jindal.",
-      externalLink: "https://in.bookmyshow.com/events/sam-aaj/ET00436340"
+      description:
+        "Join us for a groundbreaking dance-theater production that challenges norms and celebrates authenticity. Two Gujarati men confront their deepest insecurities and societal expectations while navigating love and self-discovery. A powerful blend of dance, poetry, and original music by Shivansh Jindal.",
+      externalLink: "https://in.bookmyshow.com/events/sam-aaj/ET00436340",
     },
     {
       id: 2,
@@ -108,7 +113,8 @@ const EventsPreview = () => {
       location: "Gazra Cafe",
       capacity: "50 spots",
       image: "/images/sweekar.png",
-      description: "Calling all professionals committed to equality! Join us to create a holistic support network for Women and the LGBTQIA+ community through the Resources initiative."
+      description:
+        "Calling all professionals committed to equality! Join us to create a holistic support network for Women and the LGBTQIA+ community through the Resources initiative.",
     },
     {
       id: 3,
@@ -119,19 +125,18 @@ const EventsPreview = () => {
       location: "Gazra Studio",
       capacity: "30 spots",
       image: "/images/art-therapy.png",
-      description: "Express yourself through art in our therapeutic creative session led by professional art therapists."
-    }
+      description:
+        "Express yourself through art in our therapeutic creative session led by professional art therapists.",
+    },
   ];
 
   return (
-    <section 
+    <section
       className="py-12 relative"
-      style={{ 
-        background: 'url("/images/background.jpg") center/cover no-repeat'
+      style={{
+        background: 'url("/images/background.jpg") center/cover no-repeat',
       }}
     >
-      
-      {/* Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-2xl mx-auto text-center mb-10">
           <div className="inline-flex items-center px-4 py-1 bg-primary-100 rounded-full text-primary-600 text-sm font-medium mb-6">
@@ -142,7 +147,8 @@ const EventsPreview = () => {
             Join Our Community Events
           </h2>
           <p className="text-xl text-neutral-700 bg-white/80 p-4 rounded-lg">
-            Connect, learn, and grow with our diverse community through these carefully curated events.
+            Connect, learn, and grow with our diverse community through these
+            carefully curated events.
           </p>
         </div>
 

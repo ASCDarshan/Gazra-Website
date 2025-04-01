@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Coffee, Utensils, Leaf, ChefHat, Heart, Star, Clock, Sparkles, MapPin,
@@ -12,13 +12,11 @@ const GazraCafe = () => {
   const videoRef = useRef(null);
   const { scrollY } = useScroll();
 
-  // Framer Motion transformations for Hero parallax
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.3]);
   const heroScale = useTransform(scrollY, [0, 300], [1, 1.1]);
   const heroTextOpacity = useTransform(scrollY, [0, 150], [1, 0]);
   const heroTextY = useTransform(scrollY, [0, 150], [0, -50]);
 
-  // Video controls logic
   const playVideo = () => {
     if (videoRef.current) {
       videoRef.current.play();
@@ -33,24 +31,21 @@ const GazraCafe = () => {
     }
   };
 
-  // Effect for video looping (if needed, though loop attribute is present)
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
       const handleVideoEnd = () => {
         video.currentTime = 0;
-        video.play().catch(error => console.error("Video autoplay failed:", error)); // Added catch for safety
+        video.play().catch(error => console.error("Video autoplay failed:", error));
       };
       video.addEventListener('ended', handleVideoEnd);
 
-      // Cleanup listener on component unmount
       return () => {
         video.removeEventListener('ended', handleVideoEnd);
       };
     }
   }, []);
 
-  // Helper to get spice level color
   const getSpiceLevelColor = (level) => {
     const colors = {
       'mild': 'bg-green-400',
@@ -61,7 +56,6 @@ const GazraCafe = () => {
     return colors[level] || 'bg-gray-400';
   };
 
-  // Menu data
   const categories = [
     { id: 'all', name: 'All', icon: Utensils },
     { id: 'starters', name: 'Small Plates', icon: ChefHat },
@@ -89,7 +83,6 @@ const GazraCafe = () => {
     ]
   };
 
-  // Using URLs directly from menuItems might be simpler, but this allows overrides/fallbacks
   const dishImages = {
     'Kothambir Wadi': 'https://images.unsplash.com/photo-1601050690597-df0568f70950',
     'Sabudana Wada': 'https://images.unsplash.com/photo-1589302168068-964664d93dc0',
@@ -104,48 +97,44 @@ const GazraCafe = () => {
     'Gujju Mezze': 'https://images.unsplash.com/photo-1589302168068-964664d93dc0', // Placeholder
   };
 
-  // Testimonial Data
-   const testimonials = [
-     { name: 'Priya Sharma', role: 'Food Blogger', image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5', comment: "The Zunka Bhakhar took me right back to my grandmother's kitchen. Every bite tells a story of authentic Maharashtra.", rating: 5, dish: 'Zunka Bhakhar' },
-     { name: 'Rahul Mehta', role: 'Regular Customer', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d', comment: 'Best Vada Pav in the city! The special chutney makes all the difference. A must-visit for authentic street food lovers.', rating: 5, dish: 'Vada Pav' },
-     { name: 'Anita Patel', role: 'Food Critic', image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604', comment: 'The fusion dishes are innovative yet respectful to tradition. The Gujju Mezze is a creative masterpiece!', rating: 5, dish: 'Gujju Mezze' }
+  const testimonials = [
+    { name: 'Priya Sharma', role: 'Food Blogger', image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5', comment: "The Zunka Bhakhar took me right back to my grandmother's kitchen. Every bite tells a story of authentic Maharashtra.", rating: 5, dish: 'Zunka Bhakhar' },
+    { name: 'Rahul Mehta', role: 'Regular Customer', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d', comment: 'Best Vada Pav in the city! The special chutney makes all the difference. A must-visit for authentic street food lovers.', rating: 5, dish: 'Vada Pav' },
+    { name: 'Anita Patel', role: 'Food Critic', image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604', comment: 'The fusion dishes are innovative yet respectful to tradition. The Gujju Mezze is a creative masterpiece!', rating: 5, dish: 'Gujju Mezze' }
   ];
 
-   // Instagram Feed Data
-   const instagramPosts = [
-     { url: '/images/image11.jpg', span: 'row-span-2 col-span-1' }, // Tall
-     { url: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129', span: 'row-span-1 col-span-1' }, // Square
-     { url: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187', span: 'row-span-1 col-span-1' }, // Square
-     { url: 'https://images.unsplash.com/photo-1482012792084-a0c3725f289f', span: 'row-span-2 col-span-1' }, // Tall
-     { url: 'https://images.unsplash.com/photo-1534080564583-6be75777b70a', span: 'row-span-1 col-span-1' }, // Square
-     { url: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93', span: 'row-span-1 col-span-1' }, // Square
-     { url: 'https://images.unsplash.com/photo-1511920170033-f8396924c348', span: 'row-span-1 col-span-1' }, // Square
-     { url: 'https://images.unsplash.com/photo-1523371683773-935ca36a4a3d', span: 'row-span-1 col-span-1' }  // Square
-   ];
+  const instagramPosts = [
+    { url: '/images/image11.jpg', span: 'row-span-2 col-span-1' }, // Tall
+    { url: 'https://images.unsplash.com/photo-1531968455001-5c5272a41129', span: 'row-span-1 col-span-1' }, // Square
+    { url: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187', span: 'row-span-1 col-span-1' }, // Square
+    { url: 'https://images.unsplash.com/photo-1482012792084-a0c3725f289f', span: 'row-span-2 col-span-1' }, // Tall
+    { url: 'https://images.unsplash.com/photo-1534080564583-6be75777b70a', span: 'row-span-1 col-span-1' }, // Square
+    { url: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93', span: 'row-span-1 col-span-1' }, // Square
+    { url: 'https://images.unsplash.com/photo-1511920170033-f8396924c348', span: 'row-span-1 col-span-1' }, // Square
+    { url: 'https://images.unsplash.com/photo-1523371683773-935ca36a4a3d', span: 'row-span-1 col-span-1' }  // Square
+  ];
 
-   // Feature Data
-   const features = [
-      { icon: ChefHat, title: 'Expert Chefs', description: 'Masters of traditional recipes' },
-      { icon: Leaf, title: 'Fresh Ingredients', description: 'Locally sourced produce' },
-      { icon: Coffee, title: 'Masala Chai with Love', description: 'Chai of India' },
-      { icon: Heart, title: 'Made with Love', description: 'Passion in every dish' }
-   ];
+  // Feature Data
+  const features = [
+    { icon: ChefHat, title: 'Expert Chefs', description: 'Masters of traditional recipes' },
+    { icon: Leaf, title: 'Fresh Ingredients', description: 'Locally sourced produce' },
+    { icon: Coffee, title: 'Masala Chai with Love', description: 'Chai of India' },
+    { icon: Heart, title: 'Made with Love', description: 'Passion in every dish' }
+  ];
 
-   // Stats Data
-   const stats = [
-      { number: '4.9', label: 'Customer Rating', suffix: '/5', icon: Star },
-      { number: '15+', label: 'Signature Dishes', icon: Utensils },
-      { number: '5+', label: 'Years of Service', icon: Clock },
-      { number: '10k+', label: 'Happy Customers', icon: Heart }
-   ];
+  // Stats Data
+  const stats = [
+    { number: '4.9', label: 'Customer Rating', suffix: '/5', icon: Star },
+    { number: '15+', label: 'Signature Dishes', icon: Utensils },
+    { number: '5+', label: 'Years of Service', icon: Clock },
+    { number: '10k+', label: 'Happy Customers', icon: Heart }
+  ];
 
 
   return (
     <div className="min-h-screen bg-[#FDFBF7]">
 
-      {/* Modern Video Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
-        {/* Full-screen video background */}
         <div className="absolute inset-0 bg-black">
           <motion.div
             style={{ opacity: heroOpacity, scale: heroScale }}
@@ -273,7 +262,6 @@ const GazraCafe = () => {
         </div>
       </section>
 
-      {/* Quick Stats Section - Floating cards */}
       <section className="relative z-20 -mt-20 sm:-mt-28 mx-4 md:mx-8 lg:mx-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
@@ -284,16 +272,27 @@ const GazraCafe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl p-4 sm:p-6 border border-white/60"
+                className="relative group transition-all duration-300 hover:-translate-y-1"
+                style={{ animationDelay: `${0.2 * index + 0.5}s` }}
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 mb-3 sm:mb-4">
-                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                {/* Outer wrapper for gradient border */}
+                <div className="relative rounded-2xl p-[2px]" style={{
+                  background: "linear-gradient(to bottom, #e11d48, #f97316)",
+                  borderRadius: "16px"
+                }}>
+                  {/* Inner card with original background */}
+                  <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl p-4 sm:p-6 border border-transparent"
+                    style={{ borderRadius: "14px" }}>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 mb-3 sm:mb-4">
+                        <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-1">
+                        {stat.number}{stat.suffix}
+                      </div>
+                      <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
+                    </div>
                   </div>
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-1">
-                    {stat.number}{stat.suffix}
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -302,7 +301,7 @@ const GazraCafe = () => {
       </section>
 
       {/* Menu Section with improved layout */}
-      <section id="menu" className="py-24 mt-12 relative">
+      <section id="menu" className="py-24 mt-12 relative" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         <div className="container mx-auto px-4">
           {/* Menu Introduction */}
           <div className="text-center mb-16">
@@ -327,32 +326,32 @@ const GazraCafe = () => {
 
           {/* Category Navigation - Sticky tabs */}
           <div className="sticky top-4 z-40 mb-12 sm:mb-16 flex justify-center">
-             {/* Removed motion wrapper, let parent handle animation */}
-              <div className="inline-flex flex-wrap justify-center bg-white rounded-full p-1.5 sm:p-2 shadow-lg border border-gray-100">
-                {categories.map((category) => (
-                  <motion.button
-                    key={category.id}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`
+            {/* Removed motion wrapper, let parent handle animation */}
+            <div className="inline-flex flex-wrap justify-center bg-white rounded-full p-1.5 sm:p-2 shadow-lg border border-gray-100">
+              {categories.map((category) => (
+                <motion.button
+                  key={category.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`
                       flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium text-sm sm:text-base transition-all duration-300
                       ${selectedCategory === category.id
-                        ? 'bg-primary-500 text-white shadow-md'
-                        : 'text-gray-600 hover:bg-primary-50'
-                      }
+                      ? 'bg-primary-500 text-white shadow-md'
+                      : 'text-gray-600 hover:bg-primary-50'
+                    }
                     `}
-                  >
-                    <category.icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    {category.name}
-                  </motion.button>
-                ))}
-              </div>
+                >
+                  <category.icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                  {category.name}
+                </motion.button>
+              ))}
+            </div>
           </div>
 
           {/* Menu Grid - Modern cards with hover effects */}
           <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {Object.entries(menuItems).flatMap(([category, items]) => // Use flatMap for direct array
+            {Object.entries(menuItems).flatMap(([category, items]) =>
               items
                 .filter(item => selectedCategory === 'all' || selectedCategory === category)
                 .map((item, index) => (
@@ -360,8 +359,8 @@ const GazraCafe = () => {
                     key={item.id}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }} // Trigger slightly earlier
-                    transition={{ delay: (index % 4) * 0.08 }} // Slightly faster delay
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ delay: (index % 4) * 0.08 }}
                     layout // Animate layout changes when filtering
                     className="group relative flex flex-col" // Added flex flex-col for consistent height
                   >
@@ -376,8 +375,8 @@ const GazraCafe = () => {
                         />
                         {(item.popular || item.recommended) && (
                           <div className={`absolute top-3 left-3 px-3 py-1.5 text-white text-xs rounded-full flex items-center backdrop-blur-sm ${item.popular ? 'bg-red-500/80' : 'bg-primary-500/80'}`}>
-                             {item.popular ? <Heart className="w-3 h-3 mr-1" /> : <Sparkles className="w-3 h-3 mr-1" /> }
-                             {item.popular ? 'Popular' : "Chef's Pick"}
+                            {item.popular ? <Heart className="w-3 h-3 mr-1" /> : <Sparkles className="w-3 h-3 mr-1" />}
+                            {item.popular ? 'Popular' : "Chef's Pick"}
                           </div>
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -386,10 +385,10 @@ const GazraCafe = () => {
                       <div className="p-5 sm:p-6 flex flex-col flex-grow"> {/* Use flex-grow here */}
                         <div className="flex justify-between items-start mb-2 gap-2"> {/* Use items-start */}
                           <h3 className="text-md sm:text-lg font-semibold text-gray-800 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
-                             {item.name}
+                            {item.name}
                           </h3>
                           <span className="text-sm sm:text-md font-medium text-primary-600 bg-primary-50 px-2.5 py-1 rounded-full flex-shrink-0">
-                             {item.price}
+                            {item.price}
                           </span>
                         </div>
                         <p className="text-sm text-gray-600 mb-4 flex-grow line-clamp-3">{item.description}</p> {/* Use flex-grow here */}
@@ -444,13 +443,13 @@ const GazraCafe = () => {
             >
               <div className="grid grid-cols-12 grid-rows-6 gap-3 sm:gap-4 h-full">
                 {[ // Define images and spans in an array for easier management
-                   { src: "/images/image12.jpg", alt: "Cafe Ambiance", label: "Cozy Ambiance", span: "col-span-7 row-span-4" },
-                   { src: "/images/food-1.png", alt: "Coffee Service", label: "Experience Soul Food", span: "col-span-5 row-span-3" },
-                   { src: "/images/image-two.jpg", alt: "Cafe Interior", label: "Experience Heritage", span: "col-span-5 row-span-3" },
-                   { src: "/images/image10.webp", alt: "Coffee Making", label: "Experience Happiness", span: "col-span-7 row-span-2" }
+                  { src: "/images/image12.jpg", alt: "Cafe Ambiance", label: "Cozy Ambiance", span: "col-span-7 row-span-4" },
+                  { src: "/images/food-1.png", alt: "Coffee Service", label: "Experience Soul Food", span: "col-span-5 row-span-3" },
+                  { src: "/images/image-two.jpg", alt: "Cafe Interior", label: "Experience Heritage", span: "col-span-5 row-span-3" },
+                  { src: "/images/image10.webp", alt: "Coffee Making", label: "Experience Happiness", span: "col-span-7 row-span-2" }
                 ].map((img, idx) => (
                   <div key={idx} className={`relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl ${img.span}`}>
-                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy"/>
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                     <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                       <span className="text-xs sm:text-sm font-medium text-white bg-black/40 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full backdrop-blur-sm">
@@ -494,7 +493,7 @@ const GazraCafe = () => {
                       <feature.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <h3 className="text-md sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-primary-600 transition-colors duration-300">
-                       {feature.title}
+                      {feature.title}
                     </h3>
                     <p className="text-sm text-gray-600">{feature.description}</p>
                   </motion.div>
@@ -506,30 +505,30 @@ const GazraCafe = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 relative overflow-hidden bg-[#FDFBF7]">
+      <section className="py-24 relative overflow-hidden bg-[#FDFBF7]" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         {/* Background Blobs */}
-         <div className="absolute inset-0">
-           <div className="absolute w-[500px] h-[500px] -top-[250px] -right-[250px] bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-           <div className="absolute w-[500px] h-[500px] -bottom-[250px] -left-[250px] bg-secondary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-         </div>
+        <div className="absolute inset-0">
+          <div className="absolute w-[500px] h-[500px] -top-[250px] -right-[250px] bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+          <div className="absolute w-[500px] h-[500px] -bottom-[250px] -left-[250px] bg-secondary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10" >
           <div className="text-center mb-16">
-             <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-             >
-               <span className="inline-block px-4 py-2 bg-white text-primary-600 rounded-full text-sm font-medium mb-4 shadow border border-gray-100">
-                 Guest Stories
-               </span>
-               <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
-                 What Our Community Says
-               </h2>
-               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-                 Real experiences from our valued guests who cherish our flavors and ambiance.
-               </p>
-             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-block px-4 py-2 bg-white text-primary-600 rounded-full text-sm font-medium mb-4 shadow border border-gray-100">
+                Guest Stories
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
+                What Our Community Says
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                Real experiences from our valued guests who cherish our flavors and ambiance.
+              </p>
+            </motion.div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -581,205 +580,205 @@ const GazraCafe = () => {
 
       {/* Instagram Feed Section */}
       <section className="py-24 bg-gradient-to-b from-white to-primary-50/30">
-         <div className="container mx-auto px-4">
-           <div className="text-center mb-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-block px-4 py-2 bg-white text-primary-600 rounded-full text-sm font-medium mb-4 shadow border border-gray-100">
+                @chimnabai_udyogalaya
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
+                Moments & Memories
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                Follow us on Instagram for daily updates and behind-the-scenes glimpses.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Masonry-like grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 auto-rows-[200px_300px]"> {/* Example fixed row heights */}
+            {instagramPosts.map((image, index) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: index * 0.05, duration: 0.4 }}
+                className={`relative group overflow-hidden rounded-xl sm:rounded-2xl ${image.span}`}
               >
-                <span className="inline-block px-4 py-2 bg-white text-primary-600 rounded-full text-sm font-medium mb-4 shadow border border-gray-100">
-                  @chimnabai_udyogalaya
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
-                  Moments & Memories
-                </h2>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-                  Follow us on Instagram for daily updates and behind-the-scenes glimpses.
-                </p>
+                <img
+                  src={image.url}
+                  alt={`Instagram Post ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <a href="https://instagram.com/chimnabai_udyogalaya" target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
+                  <div className="flex items-center text-white mb-1 sm:mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-2 fill-white" />
+                    <span className="text-xs sm:text-sm">{Math.floor(200 + Math.random() * 300)}</span> {/* Random likes */}
+                    <Instagram className="w-4 h-4 sm:w-5 sm:h-5 ml-auto" />
+                  </div>
+                  <p className="text-white text-xs sm:text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75 line-clamp-2">
+                    Explore our latest delicious creations and cafe vibes! #gazracafe #{['maharashtrianfood', 'punefoodie', 'goodvibes'][index % 3]}
+                  </p>
+                </a>
               </motion.div>
-           </div>
+            ))}
+          </div>
 
-           {/* Masonry-like grid */}
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 auto-rows-[200px_300px]"> {/* Example fixed row heights */}
-              {instagramPosts.map((image, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
-                  className={`relative group overflow-hidden rounded-xl sm:rounded-2xl ${image.span}`}
-                >
-                  <img
-                    src={image.url}
-                    alt={`Instagram Post ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <a href="https://instagram.com/chimnabai_udyogalaya" target="_blank" rel="noopener noreferrer" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
-                     <div className="flex items-center text-white mb-1 sm:mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                       <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-2 fill-white" />
-                       <span className="text-xs sm:text-sm">{Math.floor(200 + Math.random() * 300)}</span> {/* Random likes */}
-                       <Instagram className="w-4 h-4 sm:w-5 sm:h-5 ml-auto" />
-                     </div>
-                     <p className="text-white text-xs sm:text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75 line-clamp-2">
-                       Explore our latest delicious creations and cafe vibes! #gazracafe #{['maharashtrianfood', 'punefoodie', 'goodvibes'][index % 3]}
-                     </p>
-                  </a>
-                </motion.div>
-              ))}
-           </div>
-
-           <div className="text-center mt-12">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://instagram.com/chimnabai_udyogalaya" // Replace with your actual Instagram link
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 border-2 border-primary-200 text-primary-600 rounded-full hover:bg-primary-50 transition-all duration-300 text-sm sm:text-base"
-              >
-                Follow Us on Instagram
-                <Instagram className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </motion.a>
-           </div>
-         </div>
+          <div className="text-center mt-12">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://instagram.com/chimnabai_udyogalaya" // Replace with your actual Instagram link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 border-2 border-primary-200 text-primary-600 rounded-full hover:bg-primary-50 transition-all duration-300 text-sm sm:text-base"
+            >
+              Follow Us on Instagram
+              <Instagram className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+            </motion.a>
+          </div>
+        </div>
       </section>
 
       {/* Location Section */}
-      <section id="location" className="py-24 bg-[#FDFBF7]">
-         <div className="container mx-auto px-4">
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="max-w-6xl mx-auto"
-           >
-             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-               {/* Location Details */}
-               <div className="space-y-6 sm:space-y-8">
-                 <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-sm font-medium">
-                   Visit Us
-                 </span>
-                 <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900">
-                   Come Experience
-                   <span className="block mt-1 sm:mt-2 text-primary-600">The Magic</span>
-                 </h2>
+      <section id="location" className="py-24 bg-[#FDFBF7]" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Location Details */}
+              <div className="space-y-6 sm:space-y-8">
+                <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-sm font-medium">
+                  Visit Us
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900">
+                  Come Experience
+                  <span className="block mt-1 sm:mt-2 text-primary-600">The Magic</span>
+                </h2>
 
-                 <div className="space-y-5 sm:space-y-6">
-                    <div className="flex items-start space-x-4">
-                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
-                         <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
-                       </div>
-                       <div>
-                         <h3 className="font-bold text-gray-900 mb-1">Location</h3>
-                         <p className="text-gray-600 text-sm sm:text-base">Gazra Cafe, Shri Maharani Chimnabai Stree Udyogalaya, Opp. Sursagar, Mandvi, Vadodara</p> {/* Updated Address */}
-                         <a
-                           href="https://maps.google.com/?q=Shri+Maharani+Chimnabai+Stree+Udyogalaya+Vadodara" // Example Google Maps link
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="text-primary-600 hover:text-primary-700 text-sm mt-1 inline-flex items-center"
-                          >
-                           Get Directions <ArrowRight className="w-4 h-4 ml-1" />
-                         </a>
-                       </div>
+                <div className="space-y-5 sm:space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
+                      <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-
-                    <div className="flex items-start space-x-4">
-                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
-                         <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
-                       </div>
-                       <div>
-                         <h3 className="font-bold text-gray-900 mb-1">Hours</h3>
-                         <p className="text-gray-600 text-sm sm:text-base">Monday - Sunday: 9:00 AM - 10:00 PM</p>
-                         <p className="text-gray-600 text-sm sm:text-base">Kitchen closes at 9:30 PM</p>
-                       </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">Location</h3>
+                      <p className="text-gray-600 text-sm sm:text-base">Gazra Cafe, Shri Maharani Chimnabai Stree Udyogalaya, Opp. Sursagar, Mandvi, Vadodara</p> {/* Updated Address */}
+                      <a
+                        href="https://maps.google.com/?q=Shri+Maharani+Chimnabai+Stree+Udyogalaya+Vadodara" // Example Google Maps link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-600 hover:text-primary-700 text-sm mt-1 inline-flex items-center"
+                      >
+                        Get Directions <ArrowRight className="w-4 h-4 ml-1" />
+                      </a>
                     </div>
-
-                    {/* Add Phone Contact */}
-                     <div className="flex items-start space-x-4">
-                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
-                         <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
-                       </div>
-                       <div>
-                         <h3 className="font-bold text-gray-900 mb-1">Contact</h3>
-                         <a href="tel:+918200306871" className="text-gray-600 text-sm sm:text-base hover:text-primary-600">+91 82003 06871</a> {/* Example Phone */}
-                       </div>
-                     </div>
-
-                 </div>
-
-                 <motion.button
-                   whileHover={{ scale: 1.05 }}
-                   whileTap={{ scale: 0.95 }}
-                   className="mt-6 inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-primary-500 text-white rounded-full font-medium shadow-lg hover:bg-primary-600 transition-colors duration-200 text-sm sm:text-base"
-                  >
-                   Reserve a Table
-                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                 </motion.button>
-               </div>
-
-               {/* Map Placeholder */}
-               <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-3xl transform rotate-3 -z-10"></div>
-                  <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 sm:border-8 border-white h-[400px] sm:h-[500px]">
-                    {/* Replace with actual map iframe or image */}
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.548806266471!2d73.19829807507117!3d22.29503642968911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5bbe3f0607b%3A0x33ac28417835816d!2sShri%20Maharani%20Chimnabai%20Stree%20Udyogalaya!5e0!3m2!1sen!2sin!4v1716886941234!5m2!1sen!2sin" // Example embed URL
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Gazra Cafe Location"
-                    ></iframe>
-                    {/* Map overlay elements */}
-                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="bg-white/90 backdrop-blur-md rounded-full p-3 sm:p-4 shadow-lg">
-                          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />
-                        </div>
-                     </div>
-                     <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-3 sm:p-4 pointer-events-none">
-                         <p className="font-medium text-center text-gray-900 text-sm sm:text-base">Gazra Cafe</p>
-                         <p className="text-xs sm:text-sm text-center text-gray-600">Opp. Sursagar, Mandvi, Vadodara</p>
-                     </div>
                   </div>
-               </div>
-             </div>
-           </motion.div>
-         </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
+                      <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">Hours</h3>
+                      <p className="text-gray-600 text-sm sm:text-base">Monday - Sunday: 9:00 AM - 10:00 PM</p>
+                      <p className="text-gray-600 text-sm sm:text-base">Kitchen closes at 9:30 PM</p>
+                    </div>
+                  </div>
+
+                  {/* Add Phone Contact */}
+                  <div className="flex items-start space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
+                      <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-1">Contact</h3>
+                      <a href="tel:+918200306871" className="text-gray-600 text-sm sm:text-base hover:text-primary-600">+91 82003 06871</a> {/* Example Phone */}
+                    </div>
+                  </div>
+
+                </div>
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-6 inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-primary-500 text-white rounded-full font-medium shadow-lg hover:bg-primary-600 transition-colors duration-200 text-sm sm:text-base"
+                >
+                  Reserve a Table
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </motion.button>
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-3xl transform rotate-3 -z-10"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 sm:border-8 border-white h-[400px] sm:h-[500px]">
+                  {/* Replace with actual map iframe or image */}
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.548806266471!2d73.19829807507117!3d22.29503642968911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5bbe3f0607b%3A0x33ac28417835816d!2sShri%20Maharani%20Chimnabai%20Stree%20Udyogalaya!5e0!3m2!1sen!2sin!4v1716886941234!5m2!1sen!2sin" // Example embed URL
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Gazra Cafe Location"
+                  ></iframe>
+                  {/* Map overlay elements */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="bg-white/90 backdrop-blur-md rounded-full p-3 sm:p-4 shadow-lg">
+                      <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary-600" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-3 sm:p-4 pointer-events-none">
+                    <p className="font-medium text-center text-gray-900 text-sm sm:text-base">Gazra Cafe</p>
+                    <p className="text-xs sm:text-sm text-center text-gray-600">Opp. Sursagar, Mandvi, Vadodara</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Footer Banner - Immersive CTA */}
       <section className="py-20 sm:py-24 bg-gradient-to-b from-primary-50/30 to-white">
-         <div className="container mx-auto px-4">
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl"
-           >
-             <div className="absolute inset-0">
-               <img
-                 src="/images/image-six.jpg" // Background image
-                 alt="Cafe dining background"
-                 className="w-full h-full object-cover"
-                 loading="lazy"
-               />
-               <div className="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-primary-900/80 mix-blend-multiply" />
-             </div>
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl"
+          >
+            <div className="absolute inset-0">
+              <img
+                src="/images/image-six.jpg" // Background image
+                alt="Cafe dining background"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-primary-900/80 mix-blend-multiply" />
+            </div>
 
-             <div className="relative px-6 py-16 sm:px-8 sm:py-20 md:py-24 text-center">
-               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6">
-                 Experience the Taste of Maharashtra
-               </h2>
-               <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                 Join us for a culinary journey that celebrates tradition with a modern twist, in a space that feels like home.
-               </p>
-               <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
-                  {/* <motion.button
+            <div className="relative px-6 py-16 sm:px-8 sm:py-20 md:py-24 text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 sm:mb-6">
+                Experience the Taste of Maharashtra
+              </h2>
+              <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Join us for a culinary journey that celebrates tradition with a modern twist, in a space that feels like home.
+              </p>
+              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
+                {/* <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-white text-primary-600 rounded-full font-medium hover:bg-gray-100 transition-colors duration-200 shadow-lg text-sm sm:text-base"
@@ -787,19 +786,19 @@ const GazraCafe = () => {
                     Reserve a Table
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </motion.button> */}
-                  <motion.a // Changed to anchor tag to link to menu section
-                    href="#menu"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition-colors duration-200 text-sm sm:text-base"
-                  >
-                    View Full Menu
-                    <Utensils className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                  </motion.a>
-               </div>
-             </div>
-           </motion.div>
-         </div>
+                <motion.a // Changed to anchor tag to link to menu section
+                  href="#menu"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition-colors duration-200 text-sm sm:text-base"
+                >
+                  View Full Menu
+                  <Utensils className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
     </div>

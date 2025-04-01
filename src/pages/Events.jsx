@@ -1,12 +1,13 @@
-import React, { useState, useRef } from "react";
+/* eslint-disable react/prop-types */
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Calendar, Music, Coffee, Users,
   Clock, MapPin, Heart, ArrowRight,
-  Filter, Tag, ExternalLink, Share2,
-  X, Phone, Briefcase, MessageSquare,
+  Filter, Tag, ExternalLink,
+  X, Phone, Briefcase,
 } from "lucide-react";
-import { FaFacebook, FaTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 const EventsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -29,7 +30,6 @@ const EventsPage = () => {
     { id: "june", name: "June" },
   ];
 
-  // Event data including the Sweekar event details
   const events = [
     {
       id: 1,
@@ -154,7 +154,6 @@ const EventsPage = () => {
   const featuredEvents = filteredEvents.filter(event => event.featured);
   const regularEvents = filteredEvents.filter(event => !event.featured);
 
-  // Event Card Component
   const EventCard = ({ event }) => {
     const CategoryIcon = eventCategories.find(cat => cat.id === event.category)?.icon || Calendar;
 
@@ -176,7 +175,6 @@ const EventsPage = () => {
             </span>
           </div>
 
-          {/* Image Container */}
           <div className="aspect-w-16 aspect-h-10 relative">
             <img
               src={event.image}
@@ -186,9 +184,7 @@ const EventsPage = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
 
-          {/* Content */}
           <div className="p-5 space-y-3">
-            {/* Title and Description */}
             <div className="space-y-2">
               <h3 className="text-xl font-display font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-300 line-clamp-1">
                 {event.title}
@@ -196,7 +192,6 @@ const EventsPage = () => {
               <p className="text-neutral-600 text-sm line-clamp-2">{event.description}</p>
             </div>
 
-            {/* Event Details */}
             <div className="grid grid-cols-2 gap-2 pt-3 border-t border-neutral-100">
               <div className="space-y-2">
                 <div className="flex items-center text-xs text-neutral-600">
@@ -220,7 +215,6 @@ const EventsPage = () => {
               </div>
             </div>
 
-            {/* Action Button */}
             <div className="flex items-center justify-between pt-2">
               <span className="text-xs font-medium text-primary-600">
                 {event.price}
@@ -239,7 +233,6 @@ const EventsPage = () => {
     );
   };
 
-  // Event Detail Popup Component
   const EventDetailPopup = ({ event }) => {
     if (!event) return null;
 
@@ -260,7 +253,6 @@ const EventsPage = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative">
-              {/* Image Header */}
               <div className="h-64 sm:h-80 relative">
                 <img
                   src={event.image}
@@ -269,7 +261,6 @@ const EventsPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
 
-                {/* Close Button */}
                 <button
                   className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white/40 transition-colors duration-300"
                   onClick={() => setSelectedEvent(null)}
@@ -277,7 +268,6 @@ const EventsPage = () => {
                   <X className="w-5 h-5" />
                 </button>
 
-                {/* Category Tag */}
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-primary-600 shadow-soft">
                     <CategoryIcon className="w-3 h-3 mr-1" />
@@ -285,7 +275,6 @@ const EventsPage = () => {
                   </span>
                 </div>
 
-                {/* Event Title & Basic Info */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h2 className="text-3xl sm:text-4xl font-display font-bold mb-2">{event.title}</h2>
                   {event.fullDetails && event.fullDetails.subtitle && (
@@ -304,9 +293,7 @@ const EventsPage = () => {
                 </div>
               </div>
 
-              {/* Event Details */}
               <div className="p-6 space-y-6">
-                {/* Location & Price */}
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="bg-primary-50 rounded-xl p-4">
                     <div className="flex items-start gap-3">
@@ -551,8 +538,8 @@ const EventsPage = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedCategory(category.id)}
                   className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-200 whitespace-nowrap ${selectedCategory === category.id
-                      ? `${category.color} text-white`
-                      : "bg-white border border-neutral-200 text-neutral-600 hover:bg-primary-50"
+                    ? `${category.color} text-white`
+                    : "bg-white border border-neutral-200 text-neutral-600 hover:bg-primary-50"
                     }`}
                 >
                   <category.icon className="w-4 h-4 mr-2" />
@@ -582,7 +569,7 @@ const EventsPage = () => {
 
       {/* Featured Events */}
       {featuredEvents.length > 0 && (
-        <section className="py-12">
+        <section className="py-12" >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex justify-between items-center">
               <h2 className="text-2xl font-display font-bold text-neutral-800">Featured Events</h2>
@@ -603,7 +590,7 @@ const EventsPage = () => {
       )}
 
       {/* Regular Events Grid */}
-      <section className="py-12 bg-primary-50/50">
+      <section className="py-12 bg-primary-50/50" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex justify-between items-center">
             <h2 className="text-2xl font-display font-bold text-neutral-800">
@@ -697,7 +684,7 @@ const EventsPage = () => {
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {[
