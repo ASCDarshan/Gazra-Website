@@ -89,47 +89,46 @@ const EventCard = ({ event }) => (
   </div>
 );
 
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "SAM-AAJ",
+    category: "Theater & Dance",
+    date: "Thursday, 10th April",
+    time: "8:00 PM Onwards",
+    location: "Hosted by GAZRA",
+    capacity: "Limited Seats",
+    image: "/images/samaaj.png",
+    description:
+      "Join us for a groundbreaking dance-theater production that challenges norms and celebrates authenticity. Two Gujarati men confront their deepest insecurities and societal expectations while navigating love and self-discovery. A powerful blend of dance, poetry, and original music by Shivansh Jindal.",
+    externalLink: "https://in.bookmyshow.com/events/sam-aaj/ET00436340",
+  },
+  {
+    id: 2,
+    title: "Gazra Resource Workshop",
+    category: "Workshop",
+    date: "April 1st, 2025",
+    time: "4:00 PM To 6:00 PM",
+    location: "Gazra Cafe",
+    capacity: "50 spots",
+    image: "/images/sweekar.png",
+    description:
+      "Calling all professionals committed to equality! Join us to create a holistic support network for Women and the LGBTQIA+ community through the Resources initiative.",
+  },
+  {
+    id: 3,
+    title: "Art Therapy Session",
+    category: "Therapy",
+    date: "June 25, 2024",
+    time: "3:00 PM",
+    location: "Gazra Studio",
+    capacity: "30 spots",
+    image: "/images/art-therapy.png",
+    description:
+      "Express yourself through art in our therapeutic creative session led by professional art therapists.",
+  },
+];
 const EventsPreview = () => {
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "SAM-AAJ",
-      category: "Theater & Dance",
-      date: "Thursday, 10th April",
-      time: "8:00 PM Onwards",
-      location: "Hosted by GAZRA",
-      capacity: "Limited Seats",
-      image: "/images/samaaj.png",
-      description:
-        "Join us for a groundbreaking dance-theater production that challenges norms and celebrates authenticity. Two Gujarati men confront their deepest insecurities and societal expectations while navigating love and self-discovery. A powerful blend of dance, poetry, and original music by Shivansh Jindal.",
-      externalLink: "https://in.bookmyshow.com/events/sam-aaj/ET00436340",
-    },
-    {
-      id: 2,
-      title: "Gazra Resource Workshop",
-      category: "Workshop",
-      date: "April 1st, 2025",
-      time: "4:00 PM To 6:00 PM",
-      location: "Gazra Cafe",
-      capacity: "50 spots",
-      image: "/images/sweekar.png",
-      description:
-        "Calling all professionals committed to equality! Join us to create a holistic support network for Women and the LGBTQIA+ community through the Resources initiative.",
-    },
-    {
-      id: 3,
-      title: "Art Therapy Session",
-      category: "Therapy",
-      date: "June 25, 2024",
-      time: "3:00 PM",
-      location: "Gazra Studio",
-      capacity: "30 spots",
-      image: "/images/art-therapy.png",
-      description:
-        "Express yourself through art in our therapeutic creative session led by professional art therapists.",
-    },
-  ];
-
   return (
     <section
       className="py-12 relative"
@@ -152,14 +151,12 @@ const EventsPreview = () => {
           </p>
         </div>
 
-        {/* Events Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {upcomingEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </div>
 
-        {/* View All Button */}
         <div className="text-center">
           <Link
             to="/events"

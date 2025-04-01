@@ -1,5 +1,4 @@
-import React from 'react';
-import { Send } from 'lucide-react';
+import { Send } from "lucide-react";
 
 const Newsletter = () => {
   return (
@@ -11,9 +10,10 @@ const Newsletter = () => {
               Stay Updated with Our Latest News and Events
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Join our newsletter and be part of our growing community. Get updates about events, initiatives, and stories that matter.
+              Join our newsletter and be part of our growing community. Get
+              updates about events, initiatives, and stories that matter.
             </p>
-            
+
             <form className="space-y-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <input
@@ -31,7 +31,8 @@ const Newsletter = () => {
                 </button>
               </div>
               <p className="text-sm text-gray-500">
-                By subscribing, you agree to our Privacy Policy and consent to receive updates from Gazra.
+                By subscribing, you agree to our Privacy Policy and consent to
+                receive updates from Gazra.
               </p>
             </form>
           </div>

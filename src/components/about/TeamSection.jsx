@@ -1,50 +1,52 @@
-import React from 'react';
-import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin } from "lucide-react";
 
+const teamMembers = [
+  {
+    name: "Sarah Johnson",
+    role: "Executive Director",
+    image:
+      "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    social: {
+      facebook: "#",
+      twitter: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Alex Chen",
+    role: "Community Manager",
+    image:
+      "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    social: {
+      facebook: "#",
+      twitter: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Priya Patel",
+    role: "Programs Coordinator",
+    image:
+      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    social: {
+      facebook: "#",
+      twitter: "#",
+      linkedin: "#",
+    },
+  },
+  {
+    name: "Michael Torres",
+    role: "Outreach Specialist",
+    image:
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    social: {
+      facebook: "#",
+      twitter: "#",
+      linkedin: "#",
+    },
+  },
+];
 const TeamSection = () => {
-  const teamMembers = [
-    {
-      name: "Sarah Johnson",
-      role: "Executive Director",
-      image: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      social: {
-        facebook: "#",
-        twitter: "#",
-        linkedin: "#"
-      }
-    },
-    {
-      name: "Alex Chen",
-      role: "Community Manager",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      social: {
-        facebook: "#",
-        twitter: "#",
-        linkedin: "#"
-      }
-    },
-    {
-      name: "Priya Patel",
-      role: "Programs Coordinator",
-      image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      social: {
-        facebook: "#",
-        twitter: "#",
-        linkedin: "#"
-      }
-    },
-    {
-      name: "Michael Torres",
-      role: "Outreach Specialist",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      social: {
-        facebook: "#",
-        twitter: "#",
-        linkedin: "#"
-      }
-    }
-  ];
-
   return (
     <section className="py-20 bg-primary-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +55,8 @@ const TeamSection = () => {
             Meet Our Team
           </h2>
           <p className="text-lg text-gray-600">
-            Dedicated individuals working together to create positive change and foster inclusivity in our community.
+            Dedicated individuals working together to create positive change and
+            foster inclusivity in our community.
           </p>
         </div>
 
@@ -74,9 +77,7 @@ const TeamSection = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
                   {member.name}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  {member.role}
-                </p>
+                <p className="text-sm text-gray-600 mb-4">{member.role}</p>
                 <div className="flex justify-center space-x-4">
                   <a
                     href={member.social.facebook}

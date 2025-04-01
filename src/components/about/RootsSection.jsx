@@ -1,5 +1,3 @@
-import React from 'react';
-
 const RootsSection = () => {
   return (
     <section className="py-20 bg-primary-50">
@@ -19,13 +17,21 @@ const RootsSection = () => {
             </h2>
             <div className="prose prose-lg">
               <p>
-                Founded in Vadodara, Gazra emerged from the vision of creating a safe and inclusive space for the LGBTQIA+ community. Our journey began with small community meetups and has grown into a vibrant organization that serves and supports hundreds of individuals.
+                Founded in Vadodara, Gazra emerged from the vision of creating a
+                safe and inclusive space for the LGBTQIA+ community. Our journey
+                began with small community meetups and has grown into a vibrant
+                organization that serves and supports hundreds of individuals.
               </p>
               <p>
-                The inspiration for Gazra came from the rich history of Shri Chimnabai Stree Udhyogalay, an institution that has been empowering marginalized communities for generations. We carry forward this legacy of social change and community support.
+                The inspiration for Gazra came from the rich history of Shri
+                Chimnabai Stree Udhyogalay, an institution that has been
+                empowering marginalized communities for generations. We carry
+                forward this legacy of social change and community support.
               </p>
               <p>
-                Today, we continue to build on these strong foundations, expanding our reach and impact while staying true to our core values of inclusivity, support, and community building.
+                Today, we continue to build on these strong foundations,
+                expanding our reach and impact while staying true to our core
+                values of inclusivity, support, and community building.
               </p>
             </div>
           </div>

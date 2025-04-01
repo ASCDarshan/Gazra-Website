@@ -37,8 +37,8 @@ const FormInput = ({
       value={value}
       onChange={onChange}
       className={`w-full px-4 py-3 rounded-lg border ${error
-        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-        : "border-gray-300 focus:border-primary-500 focus:ring-primary-500"
+          ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+          : "border-gray-300 focus:border-primary-500 focus:ring-primary-500"
         } transition-all duration-200 shadow-sm placeholder-gray-400`}
       placeholder={placeholder}
       required={required}
@@ -71,8 +71,8 @@ const FormTextarea = ({
       onChange={onChange}
       rows={rows}
       className={`w-full px-4 py-3 rounded-lg border ${error
-        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-        : "border-gray-300 focus:border-primary-500 focus:ring-primary-500"
+          ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+          : "border-gray-300 focus:border-primary-500 focus:ring-primary-500"
         } transition-all duration-200 shadow-sm placeholder-gray-400`}
       placeholder={placeholder}
       required={required}
@@ -106,7 +106,6 @@ const ContactPage = () => {
       errors.name = "Name is required";
     }
 
-    // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formState.email.trim()) {
       errors.email = "Email is required";
@@ -143,17 +142,13 @@ const ContactPage = () => {
     setFormStatus(null);
 
     try {
-      const result = await emailjs.send(
-        "service_wmpytmm", // Replace with your service ID
-        "template_t5z1kdf", // Replace with your template ID
-        {
-          from_name: formState.name,
-          from_email: formState.email,
-          from_phone: formState.phone,
-          subject: formState.subject,
-          message: formState.message,
-        }
-      );
+      const result = await emailjs.send("service_wmpytmm", "template_t5z1kdf", {
+        from_name: formState.name,
+        from_email: formState.email,
+        from_phone: formState.phone,
+        subject: formState.subject,
+        message: formState.message,
+      });
 
       console.log("Email sent successfully:", result);
       setFormStatus("success");
@@ -301,8 +296,8 @@ const ContactPage = () => {
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full inline-flex items-center justify-center px-6 py-3 ${isSubmitting
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-primary-500 to-primary-600 hover:shadow-lg"
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-gradient-to-r from-primary-500 to-primary-600 hover:shadow-lg"
                       } text-white font-medium rounded-lg shadow-md transition-all duration-300`}
                   >
                     {isSubmitting ? (

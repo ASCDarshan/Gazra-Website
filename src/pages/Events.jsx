@@ -2,10 +2,20 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Calendar, Music, Coffee, Users,
-  Clock, MapPin, Heart, ArrowRight,
-  Filter, Tag, ExternalLink,
-  X, Phone, Briefcase,
+  Calendar,
+  Music,
+  Coffee,
+  Users,
+  Clock,
+  MapPin,
+  Heart,
+  ArrowRight,
+  Filter,
+  Tag,
+  ExternalLink,
+  X,
+  Phone,
+  Briefcase,
 } from "lucide-react";
 import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
@@ -17,10 +27,25 @@ const EventsPage = () => {
 
   const eventCategories = [
     { id: "all", name: "All Events", icon: Calendar, color: "bg-primary-500" },
-    { id: "theater", name: "Theater & Dance", icon: Music, color: "bg-accent-terracotta" },
-    { id: "workshop", name: "Workshops", icon: Coffee, color: "bg-accent-sage" },
+    {
+      id: "theater",
+      name: "Theater & Dance",
+      icon: Music,
+      color: "bg-accent-terracotta",
+    },
+    {
+      id: "workshop",
+      name: "Workshops",
+      icon: Coffee,
+      color: "bg-accent-sage",
+    },
     { id: "therapy", name: "Therapy", icon: Heart, color: "bg-accent-ochre" },
-    { id: "community", name: "Community", icon: Users, color: "bg-accent-slate" },
+    {
+      id: "community",
+      name: "Community",
+      icon: Users,
+      color: "bg-accent-slate",
+    },
   ];
 
   const months = [
@@ -40,7 +65,8 @@ const EventsPage = () => {
       location: "Hosted by GAZRA",
       capacity: "Limited Seats",
       image: "/images/samaaj.png",
-      description: "Join us for a groundbreaking dance-theater production that challenges norms and celebrates authenticity. Two Gujarati men confront their deepest insecurities and societal expectations while navigating love and self-discovery. A powerful blend of dance, poetry, and original music by Shivansh Jindal.",
+      description:
+        "Join us for a groundbreaking dance-theater production that challenges norms and celebrates authenticity. Two Gujarati men confront their deepest insecurities and societal expectations while navigating love and self-discovery. A powerful blend of dance, poetry, and original music by Shivansh Jindal.",
       externalLink: "https://in.bookmyshow.com/events/sam-aaj/ET00436340",
       featured: true,
       price: "Tickets on BookMyShow",
@@ -53,10 +79,12 @@ const EventsPage = () => {
       category: "workshop",
       date: "April 1st, 2025", // Note: Year is 2025
       time: "4:00 PM To 6:00 PM",
-      location: "Gazra Cafe, Shri Maharani Chimnabai Stree Udyogalaya, Opp. Sursagar, Mandvi, Vadodara",
+      location:
+        "Gazra Cafe, Shri Maharani Chimnabai Stree Udyogalaya, Opp. Sursagar, Mandvi, Vadodara",
       capacity: "50 spots",
       image: "/images/sweekar.png",
-      description: "Calling all professionals committed to equality! Join us to create a holistic support network for Women and the LGBTQIA+ community through the Sweekar initiative.",
+      description:
+        "Calling all professionals committed to equality! Join us to create a holistic support network for Women and the LGBTQIA+ community through the Sweekar initiative.",
       month: "april",
       featured: true,
       price: "Free",
@@ -74,21 +102,26 @@ const EventsPage = () => {
           "Advocates for inclusive community support",
         ],
         highlights: [
-          { // Corrected syntax here
+          {
+            // Corrected syntax here
             title: "Understanding Sensitization",
-            description: "Why inclusive resource networks matter for marginalized communities.",
+            description:
+              "Why inclusive resource networks matter for marginalized communities.",
           },
           {
             title: "Introduction to Sweekar",
-            description: "Explore the platform's verification process, features, and role in connecting users to verified legal, medical, and mental health services.",
+            description:
+              "Explore the platform's verification process, features, and role in connecting users to verified legal, medical, and mental health services.",
           },
           {
             title: "Actionable Insights",
-            description: "Learn how your expertise can bridge gaps in access and safety for vulnerable groups.",
+            description:
+              "Learn how your expertise can bridge gaps in access and safety for vulnerable groups.",
           },
           {
             title: "Networking",
-            description: "Collaborate with professionals committed to equity and inclusion.",
+            description:
+              "Collaborate with professionals committed to equity and inclusion.",
           },
         ],
         specialGuests: [
@@ -97,7 +130,8 @@ const EventsPage = () => {
             title: "Canadian Certified Counsellor & LGBTQ Rights Activist",
           },
         ],
-        additionalInfo: "Be part of building a verified multi-disciplinary resource network that addresses the complete spectrum of needs for marginalized communities.",
+        additionalInfo:
+          "Be part of building a verified multi-disciplinary resource network that addresses the complete spectrum of needs for marginalized communities.",
         includedPerks: ["Refreshments", "Networking", "Actionable Strategies"],
         callToAction: "Together, let's turn awareness into action!",
       },
@@ -111,7 +145,8 @@ const EventsPage = () => {
       location: "Gazra Studio",
       capacity: "30 spots",
       image: "/images/image-five.jpg",
-      description: "Express yourself through art in our therapeutic creative session led by professional art therapists.",
+      description:
+        "Express yourself through art in our therapeutic creative session led by professional art therapists.",
       month: "june",
       price: "₹500",
       ticketsLeft: "18 spots left",
@@ -125,7 +160,8 @@ const EventsPage = () => {
       location: "Gazra Cafe",
       capacity: "200 spots",
       image: "/images/image-one.jpg",
-      description: "Join us for a vibrant celebration of Pride Month with music, art, and community activities. Experience the joy of being yourself.",
+      description:
+        "Join us for a vibrant celebration of Pride Month with music, art, and community activities. Experience the joy of being yourself.",
       month: "june",
       price: "Free Entry",
       ticketsLeft: "120 spots left",
@@ -139,23 +175,27 @@ const EventsPage = () => {
       location: "Community Center",
       capacity: "50 spots",
       image: "/images/image-two.jpg",
-      description: "An interactive session focused on mental health awareness and support systems within our community.",
+      description:
+        "An interactive session focused on mental health awareness and support systems within our community.",
       month: "may",
       price: "₹300",
       ticketsLeft: "27 spots left",
     },
   ];
 
-  const filteredEvents = events.filter(event =>
-    (selectedCategory === "all" || event.category === selectedCategory) &&
-    (selectedMonth === "all" || event.month === selectedMonth)
+  const filteredEvents = events.filter(
+    (event) =>
+      (selectedCategory === "all" || event.category === selectedCategory) &&
+      (selectedMonth === "all" || event.month === selectedMonth)
   );
 
-  const featuredEvents = filteredEvents.filter(event => event.featured);
-  const regularEvents = filteredEvents.filter(event => !event.featured);
+  const featuredEvents = filteredEvents.filter((event) => event.featured);
+  const regularEvents = filteredEvents.filter((event) => !event.featured);
 
   const EventCard = ({ event }) => {
-    const CategoryIcon = eventCategories.find(cat => cat.id === event.category)?.icon || Calendar;
+    const CategoryIcon =
+      eventCategories.find((cat) => cat.id === event.category)?.icon ||
+      Calendar;
 
     return (
       <motion.div
@@ -167,11 +207,11 @@ const EventsPage = () => {
         onClick={() => setSelectedEvent(event)}
       >
         <div className="h-full relative bg-white rounded-2xl overflow-hidden shadow-medium hover:shadow-hard transition-all duration-500 border border-neutral-100 cursor-pointer">
-          {/* Event Tag */}
           <div className="absolute top-4 left-4 z-10">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-primary-600 shadow-soft">
               <CategoryIcon className="w-3 h-3 mr-1" />
-              {eventCategories.find(cat => cat.id === event.category)?.name || "Event"}
+              {eventCategories.find((cat) => cat.id === event.category)?.name ||
+                "Event"}
             </span>
           </div>
 
@@ -189,7 +229,9 @@ const EventsPage = () => {
               <h3 className="text-xl font-display font-bold text-neutral-900 group-hover:text-primary-600 transition-colors duration-300 line-clamp-1">
                 {event.title}
               </h3>
-              <p className="text-neutral-600 text-sm line-clamp-2">{event.description}</p>
+              <p className="text-neutral-600 text-sm line-clamp-2">
+                {event.description}
+              </p>
             </div>
 
             <div className="grid grid-cols-2 gap-2 pt-3 border-t border-neutral-100">
@@ -206,7 +248,9 @@ const EventsPage = () => {
               <div className="space-y-2">
                 <div className="flex items-center text-xs text-neutral-600">
                   <MapPin className="w-3 h-3 mr-2 text-primary-500 flex-shrink-0" />
-                  <span className="truncate">{event.location.split(",")[0]}</span>
+                  <span className="truncate">
+                    {event.location.split(",")[0]}
+                  </span>
                 </div>
                 <div className="flex items-center text-xs text-neutral-600">
                   <Users className="w-3 h-3 mr-2 text-primary-500 flex-shrink-0" />
@@ -236,7 +280,9 @@ const EventsPage = () => {
   const EventDetailPopup = ({ event }) => {
     if (!event) return null;
 
-    const CategoryIcon = eventCategories.find(cat => cat.id === event.category)?.icon || Calendar;
+    const CategoryIcon =
+      eventCategories.find((cat) => cat.id === event.category)?.icon ||
+      Calendar;
 
     return (
       <AnimatePresence>
@@ -271,14 +317,19 @@ const EventsPage = () => {
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-primary-600 shadow-soft">
                     <CategoryIcon className="w-3 h-3 mr-1" />
-                    {eventCategories.find(cat => cat.id === event.category)?.name || "Event"}
+                    {eventCategories.find((cat) => cat.id === event.category)
+                      ?.name || "Event"}
                   </span>
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h2 className="text-3xl sm:text-4xl font-display font-bold mb-2">{event.title}</h2>
+                  <h2 className="text-3xl sm:text-4xl font-display font-bold mb-2">
+                    {event.title}
+                  </h2>
                   {event.fullDetails && event.fullDetails.subtitle && (
-                    <p className="text-lg text-white/90 mb-4">{event.fullDetails.subtitle}</p>
+                    <p className="text-lg text-white/90 mb-4">
+                      {event.fullDetails.subtitle}
+                    </p>
                   )}
                   <div className="flex flex-wrap gap-4">
                     <div className="flex items-center">
@@ -299,7 +350,9 @@ const EventsPage = () => {
                     <div className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 text-primary-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="font-semibold text-neutral-800 mb-1">Location</h3>
+                        <h3 className="font-semibold text-neutral-800 mb-1">
+                          Location
+                        </h3>
                         <p className="text-neutral-600">{event.location}</p>
                       </div>
                     </div>
@@ -309,131 +362,172 @@ const EventsPage = () => {
                     <div className="flex items-start gap-3">
                       <Tag className="w-5 h-5 text-primary-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="font-semibold text-neutral-800 mb-1">Price</h3>
+                        <h3 className="font-semibold text-neutral-800 mb-1">
+                          Price
+                        </h3>
                         <p className="text-neutral-600">{event.price}</p>
-                        <p className="text-sm text-primary-600 mt-1">{event.ticketsLeft}</p>
+                        <p className="text-sm text-primary-600 mt-1">
+                          {event.ticketsLeft}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Description */}
                 <div>
-                  <h3 className="text-xl font-semibold text-neutral-800 mb-3">About This Event</h3>
+                  <h3 className="text-xl font-semibold text-neutral-800 mb-3">
+                    About This Event
+                  </h3>
                   <p className="text-neutral-600">{event.description}</p>
                 </div>
 
-                {/* Full Details for the Sweekar event */}
                 {event.fullDetails && (
                   <>
-                    {/* Target Audience */}
                     {event.fullDetails.targetAudience && (
                       <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-neutral-800">Who Can Join?</h3>
+                        <h3 className="text-xl font-semibold text-neutral-800">
+                          Who Can Join?
+                        </h3>
                         <ul className="space-y-2">
-                          {event.fullDetails.targetAudience.map((audience, index) => (
-                            <li key={index} className="flex items-start gap-2">
-                              <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center mt-0.5 flex-shrink-0">
-                                <span className="w-2 h-2 rounded-full bg-primary-500"></span>
-                              </div>
-                              <span className="text-neutral-700">{audience}</span>
-                            </li>
-                          ))}
+                          {event.fullDetails.targetAudience.map(
+                            (audience, index) => (
+                              <li
+                                key={index}
+                                className="flex items-start gap-2"
+                              >
+                                <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                  <span className="w-2 h-2 rounded-full bg-primary-500"></span>
+                                </div>
+                                <span className="text-neutral-700">
+                                  {audience}
+                                </span>
+                              </li>
+                            )
+                          )}
                         </ul>
                       </div>
                     )}
 
-                    {/* Highlights */}
                     {event.fullDetails.highlights && (
                       <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-neutral-800">Workshop Highlights</h3>
+                        <h3 className="text-xl font-semibold text-neutral-800">
+                          Workshop Highlights
+                        </h3>
                         <div className="space-y-4">
-                          {event.fullDetails.highlights.map((highlight, index) => (
-                            <div key={index} className="flex items-start gap-3">
-                              <div className="p-2 rounded-full bg-primary-100 text-primary-600 flex-shrink-0 mt-0.5">
-                                <Briefcase className="w-4 h-4" />
+                          {event.fullDetails.highlights.map(
+                            (highlight, index) => (
+                              <div
+                                key={index}
+                                className="flex items-start gap-3"
+                              >
+                                <div className="p-2 rounded-full bg-primary-100 text-primary-600 flex-shrink-0 mt-0.5">
+                                  <Briefcase className="w-4 h-4" />
+                                </div>
+                                <div>
+                                  <h4 className="font-medium text-neutral-800">
+                                    {highlight.title}
+                                  </h4>
+                                  <p className="text-neutral-600 text-sm">
+                                    {highlight.description}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <h4 className="font-medium text-neutral-800">{highlight.title}</h4>
-                                <p className="text-neutral-600 text-sm">{highlight.description}</p>
-                              </div>
-                            </div>
-                          ))}
+                            )
+                          )}
                         </div>
                       </div>
                     )}
 
-                    {/* Special Guests */}
                     {event.fullDetails.specialGuests && (
                       <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-neutral-800">Special Session By</h3>
+                        <h3 className="text-xl font-semibold text-neutral-800">
+                          Special Session By
+                        </h3>
                         {event.fullDetails.specialGuests.map((guest, index) => (
-                          <div key={index} className="flex items-center gap-3 bg-secondary-50 p-4 rounded-xl">
+                          <div
+                            key={index}
+                            className="flex items-center gap-3 bg-secondary-50 p-4 rounded-xl"
+                          >
                             <div className="w-12 h-12 rounded-full bg-secondary-200 flex items-center justify-center">
                               <Users className="w-6 h-6 text-secondary-600" />
                             </div>
                             <div>
-                              <h4 className="font-semibold text-neutral-800">{guest.name}</h4>
-                              <p className="text-neutral-600 text-sm">{guest.title}</p>
+                              <h4 className="font-semibold text-neutral-800">
+                                {guest.name}
+                              </h4>
+                              <p className="text-neutral-600 text-sm">
+                                {guest.title}
+                              </p>
                             </div>
                           </div>
                         ))}
                       </div>
                     )}
 
-                    {/* Additional Info */}
                     {event.fullDetails.additionalInfo && (
                       <div className="p-5 bg-primary-50 rounded-xl">
-                        <p className="text-neutral-700">{event.fullDetails.additionalInfo}</p>
+                        <p className="text-neutral-700">
+                          {event.fullDetails.additionalInfo}
+                        </p>
                       </div>
                     )}
 
-                    {/* Included Perks */}
                     {event.fullDetails.includedPerks && (
                       <div className="flex flex-wrap gap-2">
                         {event.fullDetails.includedPerks.map((perk, index) => (
-                          <span key={index} className="px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full text-sm">
+                          <span
+                            key={index}
+                            className="px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full text-sm"
+                          >
                             {perk}
                           </span>
                         ))}
                       </div>
                     )}
 
-                    {/* Call to Action */}
                     {event.fullDetails.callToAction && (
                       <div className="text-center p-4">
-                        <h3 className="text-2xl font-display font-bold text-primary-600">{event.fullDetails.callToAction}</h3>
+                        <h3 className="text-2xl font-display font-bold text-primary-600">
+                          {event.fullDetails.callToAction}
+                        </h3>
                       </div>
                     )}
                   </>
                 )}
 
-                {/* Contact & RSVP */}
                 <div className="border-t border-neutral-200 pt-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     {event.organizer && (
                       <div>
-                        <h3 className="font-semibold text-neutral-800 mb-2">Organized By</h3>
+                        <h3 className="font-semibold text-neutral-800 mb-2">
+                          Organized By
+                        </h3>
                         <p className="text-neutral-600">{event.organizer}</p>
                       </div>
                     )}
 
                     {event.contactPhone && (
                       <div>
-                        <h3 className="font-semibold text-neutral-800 mb-2">Contact</h3>
-                        <a href={`tel:${event.contactPhone}`} className="flex items-center text-primary-600 hover:text-primary-700">
+                        <h3 className="font-semibold text-neutral-800 mb-2">
+                          Contact
+                        </h3>
+                        <a
+                          href={`tel:${event.contactPhone}`}
+                          className="flex items-center text-primary-600 hover:text-primary-700"
+                        >
                           <Phone className="w-4 h-4 mr-2" />
                           {event.contactPhone}
                         </a>
                         {event.rsvpDeadline && (
-                          <p className="text-sm text-neutral-500 mt-1">RSVP Deadline: {event.rsvpDeadline}</p>
+                          <p className="text-sm text-neutral-500 mt-1">
+                            RSVP Deadline: {event.rsvpDeadline}
+                          </p>
                         )}
                       </div>
                     )}
                   </div>
                 </div>
 
-                {/* Actions */}
                 <div className="flex flex-wrap gap-4 justify-between items-center border-t border-neutral-200 pt-6">
                   <div className="flex items-center gap-2">
                     <span className="text-neutral-600">Share:</span>
@@ -477,9 +571,7 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
-      {/* Hero Section with Video */}
       <section className="relative overflow-hidden h-[60vh] min-h-[500px]">
-        {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
             ref={videoRef}
@@ -508,14 +600,16 @@ const EventsPage = () => {
               Join Our Community Events
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Connect, learn, and grow with our diverse community through these carefully curated events.
+              Connect, learn, and grow with our diverse community through these
+              carefully curated events.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-primary-500 text-white rounded-xl shadow-colored hover:shadow-glow transition-all duration-300"
               onClick={() => {
-                const filtersSection = document.getElementById("filters-section");
+                const filtersSection =
+                  document.getElementById("filters-section");
                 filtersSection?.scrollIntoView({ behavior: "smooth" });
               }}
             >
@@ -525,11 +619,12 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Filters Section */}
-      <section id="filters-section" className="py-6 sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-neutral-100 shadow-soft">
+      <section
+        id="filters-section"
+        className="py-6 sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-neutral-100 shadow-soft"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Category Filter */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
               {eventCategories.map((category) => (
                 <motion.button
@@ -538,8 +633,8 @@ const EventsPage = () => {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedCategory(category.id)}
                   className={`flex items-center px-4 py-2 rounded-xl font-medium transition-all duration-200 whitespace-nowrap ${selectedCategory === category.id
-                    ? `${category.color} text-white`
-                    : "bg-white border border-neutral-200 text-neutral-600 hover:bg-primary-50"
+                      ? `${category.color} text-white`
+                      : "bg-white border border-neutral-200 text-neutral-600 hover:bg-primary-50"
                     }`}
                 >
                   <category.icon className="w-4 h-4 mr-2" />
@@ -548,7 +643,6 @@ const EventsPage = () => {
               ))}
             </div>
 
-            {/* Month Filter */}
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-neutral-500" />
               <select
@@ -567,12 +661,13 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Featured Events */}
       {featuredEvents.length > 0 && (
-        <section className="py-12" >
+        <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex justify-between items-center">
-              <h2 className="text-2xl font-display font-bold text-neutral-800">Featured Events</h2>
+              <h2 className="text-2xl font-display font-bold text-neutral-800">
+                Featured Events
+              </h2>
               <span className="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center cursor-pointer">
                 <span>See All</span>
                 <ArrowRight className="ml-1 w-4 h-4" />
@@ -589,20 +684,24 @@ const EventsPage = () => {
         </section>
       )}
 
-      {/* Regular Events Grid */}
-      <section className="py-12 bg-primary-50/50" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
+      <section
+        className="py-12 bg-primary-50/50"
+        style={{ backgroundImage: 'url("/images/background.jpg")' }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex justify-between items-center">
             <h2 className="text-2xl font-display font-bold text-neutral-800">
               {selectedCategory === "all"
                 ? "All Events"
-                : `${eventCategories.find(cat => cat.id === selectedCategory)?.name || "Events"}`
-              }
+                : `${eventCategories.find((cat) => cat.id === selectedCategory)
+                  ?.name || "Events"
+                }`}
             </h2>
 
             {regularEvents.length > 0 && (
               <span className="text-neutral-500 text-sm">
-                Showing {regularEvents.length} event{regularEvents.length !== 1 ? "s" : ""}
+                Showing {regularEvents.length} event
+                {regularEvents.length !== 1 ? "s" : ""}
               </span>
             )}
           </div>
@@ -618,8 +717,12 @@ const EventsPage = () => {
           ) : (
             <div className="text-center py-16 bg-white rounded-xl shadow-soft">
               <Calendar className="w-16 h-16 text-neutral-300 mx-auto mb-4" />
-              <h3 className="text-xl font-medium text-neutral-600 mb-2">No events found</h3>
-              <p className="text-neutral-500 mb-6">Try changing your filters or check back later.</p>
+              <h3 className="text-xl font-medium text-neutral-600 mb-2">
+                No events found
+              </h3>
+              <p className="text-neutral-500 mb-6">
+                Try changing your filters or check back later.
+              </p>
               <button
                 onClick={() => {
                   setSelectedCategory("all");
@@ -634,7 +737,6 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Newsletter Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-primary-300/5" />
@@ -663,7 +765,8 @@ const EventsPage = () => {
               Never Miss an Event
             </h2>
             <p className="text-lg text-neutral-600 mb-8">
-              Subscribe to our newsletter and stay updated with the latest events and community happenings.
+              Subscribe to our newsletter and stay updated with the latest
+              events and community happenings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
@@ -683,8 +786,10 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Quick Links Section */}
-      <section className="py-16 bg-white" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
+      <section
+        className="py-16 bg-white"
+        style={{ backgroundImage: 'url("/images/background.jpg")' }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -718,7 +823,9 @@ const EventsPage = () => {
                 <div className="w-12 h-12 mb-4 rounded-xl bg-primary-50 flex items-center justify-center text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
                   <item.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold text-neutral-900 mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-neutral-600 mb-4">{item.description}</p>
                 <motion.a
                   href={item.link}
@@ -734,7 +841,6 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Event Detail Popup */}
       <EventDetailPopup event={selectedEvent} />
     </div>
   );
