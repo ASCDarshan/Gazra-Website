@@ -13,8 +13,8 @@ const Navbar = () => {
   const navigationItems = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'About Us', path: '/about', icon: Info },
-    { 
-      name: 'Our Programs', 
+    {
+      name: 'Our Programs',
       path: null,
       icon: BookOpen,
       submenu: [
@@ -32,18 +32,18 @@ const Navbar = () => {
 
   // Social media links
   const socialLinks = [
-    { 
-      name: 'Facebook', 
+    {
+      name: 'Facebook',
       url: 'https://www.facebook.com/chimnabaiudyogalaya/?profile_tab_item_selected=about&_rdr',
       icon: FaFacebook
     },
-    { 
-      name: 'Instagram', 
+    {
+      name: 'Instagram',
       url: 'https://www.instagram.com/chimnabai_udyogalaya/?hl=en',
       icon: FaInstagram
     },
-    { 
-      name: 'Google', 
+    {
+      name: 'Google',
       url: 'https://g.co/kgs/uX2R5uP',
       icon: FcGoogle
     }
@@ -96,11 +96,11 @@ const Navbar = () => {
                   <span className="hidden sm:inline">82003 06871</span>
                 </span>
               </div>
-              
+
               {/* Social Media Links */}
               <div className="flex items-center gap-4">
                 {socialLinks.map((social, index) => (
-                  <a 
+                  <a
                     key={index}
                     href={social.url}
                     target="_blank"
@@ -112,8 +112,8 @@ const Navbar = () => {
                   </a>
                 ))}
                 <span className="hidden md:inline text-primary-200">|</span>
-                <Link 
-                  to="/become-a-partner"
+                <Link
+                  to=""
                   className="hidden md:inline text-white hover:text-primary-200 transition-colors duration-300"
                 >
                   Contribute to a Cause
@@ -129,9 +129,9 @@ const Navbar = () => {
             <div className="flex justify-between items-center h-16">
               {/* Logo with image */}
               <Link to="/" className="flex items-center">
-                <img 
-                  src="https://gazra.org/logo.png" 
-                  alt="Gazra Logo" 
+                <img
+                  src="https://gazra.org/logo.png"
+                  alt="Gazra Logo"
                   className="h-11 w-auto mr-2"
                 />
                 <span className="text-2xl font-bold text-primary-600">Project Gazra</span>
@@ -155,7 +155,7 @@ const Navbar = () => {
                         {item.name}
                         <ChevronDown size={16} className={`ml-1 transition-transform duration-200 ${dropdownOpen === item.name ? 'rotate-180' : ''}`} />
                       </button>
-                      
+
                       {dropdownOpen === item.name && (
                         <div className="absolute left-0 mt-0 w-56 bg-white rounded-lg shadow-medium border border-neutral-100 py-2 z-20">
                           {item.submenu.map((subItem, subIndex) => (
@@ -189,9 +189,9 @@ const Navbar = () => {
                       )}
                     </div>
                   ) : (
-                    <Link 
-                      key={index} 
-                      to={item.path} 
+                    <Link
+                      key={index}
+                      to={item.path}
                       className={`px-5 py-2 text-sm font-medium transition-all duration-300 relative
                         ${isActivePath(item.path)
                           ? 'text-primary-600'
@@ -210,7 +210,7 @@ const Navbar = () => {
               </div>
 
               {/* Mobile Menu Button - Only visible on medium screens, hidden on small screens where bottom nav is used */}
-              <button 
+              <button
                 className="lg:hidden md:block hidden p-2 rounded-lg hover:bg-neutral-100 
                   transition-colors duration-300 text-neutral-600"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -238,7 +238,7 @@ const Navbar = () => {
                         <span>{item.name}</span>
                         <ChevronDown size={16} className={`transition-transform duration-200 ${dropdownOpen === item.name ? 'rotate-180' : ''}`} />
                       </button>
-                      
+
                       {dropdownOpen === item.name && (
                         <div className="pl-4 space-y-1 border-l-2 border-primary-200 ml-4">
                           {item.submenu.map((subItem, subIndex) => (
@@ -272,14 +272,13 @@ const Navbar = () => {
                       )}
                     </div>
                   ) : (
-                    <Link 
-                      key={index} 
-                      to={item.path} 
-                      className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-                        isActivePath(item.path)
+                    <Link
+                      key={index}
+                      to={item.path}
+                      className={`px-4 py-2 rounded-lg transition-colors duration-300 ${isActivePath(item.path)
                           ? 'bg-primary-50 text-primary-600'
                           : 'text-neutral-600 hover:bg-neutral-50'
-                      }`}
+                        }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}
@@ -329,7 +328,7 @@ const Navbar = () => {
           <div className="absolute bottom-16 left-0 right-0 bg-white border-t border-neutral-200 shadow-lg py-4 px-4 rounded-t-xl">
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-medium text-primary-700">Our Programs</h3>
-              <button 
+              <button
                 onClick={() => setDropdownOpen(null)}
                 className="text-neutral-500 p-1"
               >

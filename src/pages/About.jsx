@@ -1,13 +1,10 @@
-import React from 'react';
 import { ArrowRight, Heart, Users, Shield, Coffee, Clock, BookOpen, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
   return (
     <div className="w-full">
-      {/* Hero Section with Animated Background - Reduced Height */}
       <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-b from-white via-primary-50/50 to-white">
-        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute w-[800px] h-[800px] -top-[400px] -left-[400px] bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
           <div className="absolute w-[800px] h-[800px] -bottom-[400px] -right-[400px] bg-accent-terracotta/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse delay-1000"></div>
@@ -16,7 +13,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-4 h-4 bg-primary-200 rounded-full animate-float"></div>
           <div className="absolute top-40 right-20 w-6 h-6 bg-accent-terracotta/30 rounded-full animate-float-delay-1"></div>
@@ -24,10 +20,8 @@ const About = () => {
           <div className="absolute top-1/3 right-1/3 w-5 h-5 bg-accent-sage/30 rounded-full animate-float-delay-3"></div>
         </div>
 
-        {/* Main Content - Reduced Padding */}
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
-            {/* Text Content - Spans 7 columns */}
             <div className="lg:col-span-7 space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -51,7 +45,7 @@ const About = () => {
                 </h1>
 
                 <p className="text-lg text-neutral-600 max-w-xl">
-                  An initiative by Shri Maharani Chimnabai Stree Udyogalaya, creating 
+                  An initiative by Shri Maharani Chimnabai Stree Udyogalaya, creating
                   safe spaces, fostering understanding, and celebrating diversity in our vibrant community.
                 </p>
 
@@ -86,7 +80,6 @@ const About = () => {
               </motion.div>
             </div>
 
-            {/* Logo and Design Elements - Spans 5 columns - Reduced Size */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -94,7 +87,6 @@ const About = () => {
               className="lg:col-span-5 relative"
             >
               <div className="relative">
-                {/* Background Circles - Reduced Size */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-[300px] h-[300px] bg-gradient-to-r from-primary-100 to-accent-sage/30 
                     rounded-full animate-spin-slow opacity-30"></div>
@@ -102,17 +94,15 @@ const About = () => {
                     rounded-full animate-reverse-spin opacity-30"></div>
                 </div>
 
-                {/* Logo Container - Reduced Padding */}
                 <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-soft 
                   border border-primary-100 transform hover:scale-105 transition-transform duration-300">
-                  <img 
+                  <img
                     src="/images/image7.webp"
                     alt="Gazra Logo"
                     className="w-122 h-72 mx-auto relative z-10 object-contain"
                   />
                 </div>
 
-                {/* Decorative Elements */}
                 <div className="absolute -top-6 -right-6 w-12 h-12 bg-primary-100 rounded-full 
                   animate-bounce-soft"></div>
                 <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-accent-terracotta/30 rounded-full 
@@ -120,7 +110,7 @@ const About = () => {
               </div>
 
               <div>
-                <img 
+                <img
                   src="https://gazra.org/logo.png"
                   alt="Gazra Logo"
                   className="w-36 h-36 mx-auto relative z-10 object-contain"
@@ -131,8 +121,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Legacy Section */}
-      <section id="story" className="py-20 bg-white">
+      <section id="story" className="py-20 bg-white" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <span className="inline-block px-4 py-1.5 bg-primary-50 border border-primary-100 rounded-full text-primary-600 text-sm font-medium mb-4">
@@ -163,7 +152,7 @@ const About = () => {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-neutral-800">Continuing the Vision of Maharani Chimnabai</h3>
               <p className="text-neutral-600">
-                What began as a pioneering institution for women's education and economic independence has evolved into a multifaceted organization addressing the needs of diverse communities. Throughout our journey, we have remained committed to the founding principles of dignity, equality, and empowerment.
+                What began as a pioneering institution for women&apos;s education and economic independence has evolved into a multifaceted organization addressing the needs of diverse communities. Throughout our journey, we have remained committed to the founding principles of dignity, equality, and empowerment.
               </p>
               <p className="text-neutral-600">
                 Today, under Project Gazra, we extend this legacy by creating inclusive spaces like the Gazra Cafe that embraces all individuals regardless of gender identity, sexual orientation, or background. The same spirit of social reform that guided our founding now inspires our commitment to LGBTQIA+ inclusion and support.
@@ -193,7 +182,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
       <section id="mission" className="py-20 bg-gradient-to-b from-white to-primary-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -209,9 +197,8 @@ const About = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-stretch">
-            {/* Mission Card */}
             <div className="group relative h-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-100 to-accent-sage/30 rounded-2xl transform rotate-1 transition-transform group-hover:rotate-2"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-primary-400 rounded-2xl transform rotate-1 transition-transform group-hover:rotate-2"></div>
               <div className="relative h-full p-8 bg-white rounded-2xl shadow-soft border border-primary-100/50 hover:shadow-lg transition-all duration-300">
                 <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mb-6">
                   <Heart className="w-8 h-8 text-primary-600" />
@@ -226,9 +213,8 @@ const About = () => {
               </div>
             </div>
 
-            {/* Vision Card */}
             <div className="group relative h-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-ochre/30 to-primary-100 rounded-2xl transform -rotate-1 transition-transform group-hover:-rotate-2"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-primary-400 rounded-2xl transform -rotate-1 transition-transform group-hover:-rotate-2"></div>
               <div className="relative h-full p-8 bg-white rounded-2xl shadow-soft border border-primary-100/50 hover:shadow-lg transition-all duration-300">
                 <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mb-6">
                   <BookOpen className="w-8 h-8 text-primary-600" />
@@ -246,8 +232,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 bg-primary-50">
+      <section className="py-20 bg-primary-50" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side: Values Cards */}
@@ -264,7 +249,7 @@ const About = () => {
               <div className="grid sm:grid-cols-2 gap-6">
                 {/* Value Card 1 */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-100 to-accent-terracotta/20 rounded-2xl transform rotate-1 transition-transform group-hover:rotate-2"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-primary-400 rounded-2xl transform rotate-1 transition-transform group-hover:rotate-2"></div>
                   <div className="relative p-6 bg-white rounded-2xl shadow-soft border border-primary-100/50 hover:shadow-lg transition-all duration-300">
                     <Heart className="w-8 h-8 text-primary-500 mb-4" />
                     <h3 className="text-xl font-bold text-neutral-900 mb-2">Inclusivity</h3>
@@ -274,7 +259,7 @@ const About = () => {
 
                 {/* Value Card 2 */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent-ochre/20 to-primary-100 rounded-2xl transform -rotate-1 transition-transform group-hover:-rotate-2"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-primary-400 rounded-2xl transform -rotate-1 transition-transform group-hover:-rotate-2"></div>
                   <div className="relative p-6 bg-white rounded-2xl shadow-soft border border-primary-100/50 hover:shadow-lg transition-all duration-300">
                     <Users className="w-8 h-8 text-primary-500 mb-4" />
                     <h3 className="text-xl font-bold text-neutral-900 mb-2">Community</h3>
@@ -284,7 +269,7 @@ const About = () => {
 
                 {/* Value Card 3 */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-100 to-accent-sage/20 rounded-2xl transform rotate-1 transition-transform group-hover:rotate-2"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-primary-400 rounded-2xl transform rotate-1 transition-transform group-hover:rotate-2"></div>
                   <div className="relative p-6 bg-white rounded-2xl shadow-soft border border-primary-100/50 hover:shadow-lg transition-all duration-300">
                     <Shield className="w-8 h-8 text-primary-500 mb-4" />
                     <h3 className="text-xl font-bold text-neutral-900 mb-2">Safe Space</h3>
@@ -294,7 +279,7 @@ const About = () => {
 
                 {/* Value Card 4 */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent-sage/20 to-accent-terracotta/20 rounded-2xl transform -rotate-1 transition-transform group-hover:-rotate-2"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-primary-400 rounded-2xl transform -rotate-1 transition-transform group-hover:-rotate-2"></div>
                   <div className="relative p-6 bg-white rounded-2xl shadow-soft border border-primary-100/50 hover:shadow-lg transition-all duration-300">
                     <Coffee className="w-8 h-8 text-primary-500 mb-4" />
                     <h3 className="text-xl font-bold text-neutral-900 mb-2">Connection</h3>
@@ -391,7 +376,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
           <div className="text-center mt-12">
             <a
               href="/cafe"
@@ -404,8 +388,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Join Us CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-50 to-accent-sage/10">
+      <section className="py-20 bg-gradient-to-r from-primary-50 to-accent-sage/10" style={{ backgroundImage: 'url("/images/background.jpg")' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative max-w-4xl mx-auto bg-white rounded-3xl shadow-medium overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 via-accent-terracotta to-accent-ochre"></div>
@@ -413,8 +396,8 @@ const About = () => {
               <div className="space-y-6">
                 <h2 className="text-3xl font-display font-bold text-neutral-900">Join Our Community</h2>
                 <p className="text-neutral-600">
-                  Be part of a movement that celebrates diversity, fosters inclusion, and creates positive change. 
-                  Whether you're looking for support, connection, or ways to contribute, there's a place for you at Gazra.
+                  Be part of a movement that celebrates diversity, fosters inclusion, and creates positive change.
+                  Whether you&apos;re looking for support, connection, or ways to contribute, there&apos;s a place for you at Gazra.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a href="/volunteer" className="inline-flex items-center px-6 py-3 bg-primary-500 text-white rounded-xl hover:bg-primary-600 transition-colors duration-300">
@@ -428,9 +411,9 @@ const About = () => {
                 </div>
               </div>
               <div className="relative">
-                <img 
-                  src="/images/join-community.jpg" 
-                  alt="Join our community" 
+                <img
+                  src="/images/join-community.jpg"
+                  alt="Join our community"
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
