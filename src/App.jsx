@@ -20,16 +20,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/initiatives" element={<InitiativesPage />} />
+          <Route path="/gazra-support" element={<GazraSupportFund />} />
+          <Route path="/gazra-skills" element={<GazraSkills />} />
           <Route path="/cafe" element={<GazraCafe />} />
+          <Route path="/initiatives" element={<InitiativesPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/volunteer" element={<VolunteerPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/Menu" element={<MenuCard />} />
           <Route path="/calendar" element={<EventCalendarPage />} />
-          <Route path="/gazra-support" element={<GazraSupportFund />} />
-          <Route path="/gazra-skills" element={<GazraSkills />} />
         </Routes>
       </MainLayout>
     </Router>

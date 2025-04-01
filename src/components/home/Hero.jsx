@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 lg:pt-12">
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-full shadow-soft animate-fade-in">
               <Sparkles className="w-4 h-4 text-white" />
@@ -183,22 +183,77 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-6 space-y-6 animate-fade-in pl-6">
-            <div className="grid grid-cols-6 gap-5 overflow-visible">
-              {images.map((image, index) => (
+          <div className="lg:col-span-6 animate-fade-in relative pl-6 ml-6">
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-500/0 to-orange-500/0 opacity-0 transition-opacity duration-500 hover:opacity-20 pointer-events-none z-10"></div>
+
+            <div className="grid grid-cols-3 gap-3 h-full ml-4 mr-0 relative group">
+              <div className="col-span-2 transform hover:-translate-y-2 transition-transform duration-700">
                 <div
-                  key={index}
-                  className={`col-span-${image.span} ${image.height} relative group overflow-hidden rounded-2xl shadow-medium hover:shadow-hard transition-all duration-500 animate-scale`}
-                  style={{ animationDelay: `${0.1 * index}s` }}
+                  className="h-48 rounded-2xl overflow-hidden shadow-medium hover:shadow-hard relative transition-all duration-300 animate-float"
+                  style={{ animationDelay: "0s", animationDuration: "6s" }}
                 >
                   <img
-                    src={image.url}
-                    alt={`Community ${index + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    src={images[0].url}
+                    alt={images[0].alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-              ))}
+              </div>
+              <div className="col-span-1 transform hover:-translate-y-2 transition-transform duration-700">
+                <div
+                  className="h-48 rounded-2xl overflow-hidden shadow-medium hover:shadow-hard relative transition-all duration-300 animate-float"
+                  style={{ animationDelay: "1s", animationDuration: "5s" }}
+                >
+                  <img
+                    src={images[1].url}
+                    alt={images[1].alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
+
+              <div className="col-span-3 transform hover:-translate-y-2 transition-transform duration-700">
+                <div
+                  className="h-32 rounded-2xl overflow-hidden shadow-medium hover:shadow-hard relative transition-all duration-300 animate-float"
+                  style={{ animationDelay: "0.5s", animationDuration: "7s" }}
+                >
+                  <img
+                    src={images[2].url}
+                    alt={images[2].alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
+
+              <div className="col-span-1 transform hover:-translate-y-2 transition-transform duration-700">
+                <div
+                  className="h-40 rounded-2xl overflow-hidden shadow-medium hover:shadow-hard relative transition-all duration-300 animate-float"
+                  style={{ animationDelay: "1.5s", animationDuration: "5.5s" }}
+                >
+                  <img
+                    src={images[3].url}
+                    alt={images[3].alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
+              <div className="col-span-2 transform hover:-translate-y-2 transition-transform duration-700">
+                <div
+                  className="h-40 rounded-2xl overflow-hidden shadow-medium hover:shadow-hard relative transition-all duration-300 animate-float"
+                  style={{ animationDelay: "0.75s", animationDuration: "6.5s" }}
+                >
+                  <img
+                    src={images[4].url}
+                    alt={images[4].alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

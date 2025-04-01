@@ -138,7 +138,6 @@ const QuickOverview = () => {
                   </span>
                 </div>
 
-                {/* Animated button */}
                 <Link
                   to="/cafe"
                   className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-orange-400 to-yellow-400 text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"

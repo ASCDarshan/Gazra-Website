@@ -12,8 +12,6 @@ import {
   Download,
   FileText,
   ChevronDown,
-  Mail,
-  Phone,
   Calendar,
 } from "lucide-react";
 
@@ -94,8 +92,9 @@ const GazraSupportFund = () => {
               />
               <div className="absolute -bottom-6 right-8 p-4 bg-white rounded-xl shadow-medium border border-primary-100 max-w-xs">
                 <p className="text-sm font-medium text-neutral-800">
-                  "Everyone deserves the chance to live with Freedom and without
-                  Subjugation. We're here to help make that possible."
+                  &quot;Everyone deserves the chance to live with Freedom and
+                  without Subjugation. We&apos;re here to help make that
+                  possible.&quot;
                 </p>
               </div>
             </div>
@@ -122,7 +121,6 @@ const GazraSupportFund = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Education Funding */}
             <div className="group relative bg-white rounded-2xl shadow-soft border border-primary-100/50 overflow-hidden hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
               <div className="h-2 bg-gradient-to-r from-primary-400 to-primary-600"></div>
               <div className="p-8">
@@ -160,7 +158,6 @@ const GazraSupportFund = () => {
               </div>
             </div>
 
-            {/* Medical Treatments */}
             <div className="group relative bg-white rounded-2xl shadow-soft border border-primary-100/50 overflow-hidden hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
               <div className="h-2 bg-gradient-to-r from-accent-terracotta to-accent-ochre"></div>
               <div className="p-8">
@@ -197,7 +194,6 @@ const GazraSupportFund = () => {
               </div>
             </div>
 
-            {/* Gender-Affirming Surgeries */}
             <div className="group relative bg-white rounded-2xl shadow-soft border border-primary-100/50 overflow-hidden hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
               <div className="h-2 bg-gradient-to-r from-accent-sage to-primary-500"></div>
               <div className="p-8">
@@ -237,7 +233,6 @@ const GazraSupportFund = () => {
               </div>
             </div>
 
-            {/* Mental Health Services */}
             <div className="group relative bg-white rounded-2xl shadow-soft border border-primary-100/50 overflow-hidden hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
               <div className="h-2 bg-gradient-to-r from-accent-slate to-accent-sage"></div>
               <div className="p-8">
@@ -274,7 +269,6 @@ const GazraSupportFund = () => {
               </div>
             </div>
 
-            {/* Legal Aid */}
             <div className="group relative bg-white rounded-2xl shadow-soft border border-primary-100/50 overflow-hidden hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
               <div className="h-2 bg-gradient-to-r from-primary-600 to-accent-slate"></div>
               <div className="p-8">
@@ -316,7 +310,6 @@ const GazraSupportFund = () => {
               </div>
             </div>
 
-            {/* Emergency Support */}
             <div className="group relative bg-white rounded-2xl shadow-soft border border-primary-100/50 overflow-hidden hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
               <div className="h-2 bg-gradient-to-r from-accent-ochre to-primary-400"></div>
               <div className="p-8">
@@ -356,7 +349,6 @@ const GazraSupportFund = () => {
         </div>
       </section>
 
-      {/* Eligibility & Application Process */}
       <section
         id="eligibility"
         className="py-20 bg-gradient-to-b from-white to-primary-50/50"
@@ -376,7 +368,6 @@ const GazraSupportFund = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Eligibility Criteria */}
             <div className="bg-white rounded-2xl shadow-soft p-8 border border-primary-100">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6 flex items-center">
                 <ShieldCheck className="w-6 h-6 text-primary-500 mr-2" />
@@ -453,14 +444,12 @@ const GazraSupportFund = () => {
               </div>
             </div>
 
-            {/* Application Process */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-neutral-900 mb-6">
                 Application Process
               </h3>
 
               <div className="relative">
-                {/* Step 1 */}
                 <div className="relative pl-12 pb-12 border-l-2 border-primary-200">
                   <div className="absolute left-0 top-0 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold">
                     1
@@ -552,7 +541,6 @@ const GazraSupportFund = () => {
                   </div>
                 </div>
 
-                {/* Step 2 */}
                 <div className="relative pl-12 pb-12 border-l-2 border-primary-200">
                   <div className="absolute left-0 top-0 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold">
                     2
@@ -569,7 +557,6 @@ const GazraSupportFund = () => {
                   </div>
                 </div>
 
-                {/* Step 3 */}
                 <div className="relative pl-12 pb-12 border-l-2 border-primary-200">
                   <div className="absolute left-0 top-0 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold">
                     3
@@ -626,7 +613,6 @@ const GazraSupportFund = () => {
                   </div>
                 </div>
 
-                {/* Step 4 */}
                 <div className="relative pl-12">
                   <div className="absolute left-0 top-0 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold">
                     4
@@ -677,8 +663,8 @@ const GazraSupportFund = () => {
                           <li className="flex items-start gap-2">
                             <div className="w-1 h-1 rounded-full bg-primary-500 mt-2 flex-shrink-0"></div>
                             <span>
-                              Alignment with our fund's mission and available
-                              resources
+                              Alignment with our fund&apos;s mission and
+                              available resources
                             </span>
                           </li>
                         </ul>
@@ -717,7 +703,6 @@ const GazraSupportFund = () => {
         </div>
       </section>
 
-      {/* Application Form Section */}
       <section
         id="apply"
         className="py-20 bg-primary-50/50"
@@ -739,9 +724,7 @@ const GazraSupportFund = () => {
               </p>
             </div>
 
-            {/* Multi-step form */}
             <div className="bg-white rounded-2xl shadow-medium border border-primary-100 overflow-hidden">
-              {/* Form Header/Progress */}
               <div className="bg-gradient-to-r from-primary-500 to-accent-terracotta text-white p-6">
                 <h3 className="text-xl font-bold mb-4">
                   Initial Screening Questionnaire
@@ -750,8 +733,8 @@ const GazraSupportFund = () => {
                   <div className="flex items-center gap-1">
                     <div
                       className={`w-8 h-8 rounded-full ${formStep >= 1
-                        ? "bg-white text-primary-600"
-                        : "bg-white/30 text-white"
+                          ? "bg-white text-primary-600"
+                          : "bg-white/30 text-white"
                         } flex items-center justify-center font-bold`}
                     >
                       1
@@ -764,8 +747,8 @@ const GazraSupportFund = () => {
                     </div>
                     <div
                       className={`w-8 h-8 rounded-full ${formStep >= 2
-                        ? "bg-white text-primary-600"
-                        : "bg-white/30 text-white"
+                          ? "bg-white text-primary-600"
+                          : "bg-white/30 text-white"
                         } flex items-center justify-center font-bold`}
                     >
                       2
@@ -778,8 +761,8 @@ const GazraSupportFund = () => {
                     </div>
                     <div
                       className={`w-8 h-8 rounded-full ${formStep >= 3
-                        ? "bg-white text-primary-600"
-                        : "bg-white/30 text-white"
+                          ? "bg-white text-primary-600"
+                          : "bg-white/30 text-white"
                         } flex items-center justify-center font-bold`}
                     >
                       3
@@ -792,8 +775,8 @@ const GazraSupportFund = () => {
                     </div>
                     <div
                       className={`w-8 h-8 rounded-full ${formStep >= 4
-                        ? "bg-white text-primary-600"
-                        : "bg-white/30 text-white"
+                          ? "bg-white text-primary-600"
+                          : "bg-white/30 text-white"
                         } flex items-center justify-center font-bold`}
                     >
                       4
@@ -806,7 +789,6 @@ const GazraSupportFund = () => {
                 </div>
               </div>
 
-              {/* Form Body - Step 1: Applicant Details */}
               {formStep === 1 && (
                 <div className="p-6 md:p-8">
                   <h4 className="text-lg font-semibold text-neutral-800 mb-6">
@@ -1019,7 +1001,6 @@ const GazraSupportFund = () => {
                 </div>
               )}
 
-              {/* Form Body - Step 2: Purpose of Assistance */}
               {formStep === 2 && (
                 <div className="p-6 md:p-8">
                   <h4 className="text-lg font-semibold text-neutral-800 mb-6">
@@ -1143,7 +1124,6 @@ const GazraSupportFund = () => {
                 </div>
               )}
 
-              {/* Form Body - Step 3: Financial Need */}
               {formStep === 3 && (
                 <div className="p-6 md:p-8">
                   <h4 className="text-lg font-semibold text-neutral-800 mb-6">
@@ -1337,13 +1317,10 @@ const GazraSupportFund = () => {
                 </div>
               )}
 
-              {/* Form Body - Step 4: Medical/Educational Info and Declaration */}
               {formStep === 4 && (
                 <div className="p-6 md:p-8">
                   <div className="space-y-8">
                     {" "}
-                    {/* Increased spacing between major sections */}
-                    {/* Medical Information Section */}
                     <div>
                       <h4 className="text-lg font-semibold text-neutral-800 mb-4">
                         4. Medical Information (If applying for medical
@@ -1510,7 +1487,6 @@ const GazraSupportFund = () => {
                         </div>
                       </div>
                     </div>
-                    {/* Educational Information Section */}
                     <div>
                       <h4 className="text-lg font-semibold text-neutral-800 mb-4">
                         5. Educational Information (If applying for educational
@@ -1659,7 +1635,6 @@ const GazraSupportFund = () => {
                         </div>
                       </div>
                     </div>
-                    {/* Emotional and Social Support */}
                     <div>
                       <h4 className="text-lg font-semibold text-neutral-800 mb-4">
                         6. Emotional and Social Support
@@ -1791,7 +1766,6 @@ const GazraSupportFund = () => {
                         </div>
                       </div>
                     </div>
-                    {/* Understanding and Commitment */}
                     <div>
                       <h4 className="text-lg font-semibold text-neutral-800 mb-4">
                         7. Understanding and Commitment
@@ -1887,7 +1861,6 @@ const GazraSupportFund = () => {
                         </div>
                       </div>
                     </div>
-                    {/* Additional Information */}
                     <div>
                       <h4 className="text-lg font-semibold text-neutral-800 mb-4">
                         8. Additional Information
@@ -1904,7 +1877,6 @@ const GazraSupportFund = () => {
                         ></textarea>
                       </div>
                     </div>
-                    {/* Declaration */}
                     <div className="pt-6 border-t border-neutral-200">
                       <h4 className="text-lg font-semibold text-neutral-800 mb-4">
                         9. Declaration
@@ -1912,11 +1884,10 @@ const GazraSupportFund = () => {
                       <div className="p-4 bg-primary-50 rounded-xl mb-4">
                         <p className="text-sm text-neutral-700">
                           {" "}
-                          {/* Adjusted text size */}I hereby declare that all
-                          the information provided in this questionnaire is true
-                          and accurate to the best of my knowledge. I understand
-                          that providing false information may result in the
-                          denial of assistance.
+                          I hereby declare that all the information provided in
+                          this questionnaire is true and accurate to the best of
+                          my knowledge. I understand that providing false
+                          information may result in the denial of assistance.
                         </p>
                       </div>
                       <div className="flex items-start gap-2">
@@ -1930,10 +1901,9 @@ const GazraSupportFund = () => {
                           className="text-sm text-neutral-700"
                         >
                           {" "}
-                          {/* Adjusted text size */}I agree to the above
-                          declaration and consent to the processing of my
-                          personal information for the purpose of evaluating my
-                          application for assistance.
+                          I agree to the above declaration and consent to the
+                          processing of my personal information for the purpose
+                          of evaluating my application for assistance.
                         </label>
                       </div>
                     </div>
@@ -1946,10 +1916,7 @@ const GazraSupportFund = () => {
                     >
                       Previous
                     </button>
-                    <button
-                      // Add submission logic here
-                      className="px-6 py-3 bg-primary-500 text-white rounded-xl hover:bg-primary-600 transition-colors duration-300"
-                    >
+                    <button className="px-6 py-3 bg-primary-500 text-white rounded-xl hover:bg-primary-600 transition-colors duration-300">
                       Submit Application
                     </button>
                   </div>
@@ -1959,7 +1926,6 @@ const GazraSupportFund = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };

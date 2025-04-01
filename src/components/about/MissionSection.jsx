@@ -1,30 +1,32 @@
-import React from 'react';
-import { Heart, Users, Home, Shield } from 'lucide-react';
+import { Heart, Users, Home, Shield } from "lucide-react";
 
+const values = [
+  {
+    icon: Heart,
+    title: "Inclusivity",
+    description:
+      "Creating spaces where everyone feels welcomed, valued, and respected regardless of their identity.",
+  },
+  {
+    icon: Users,
+    title: "Community",
+    description:
+      "Building strong connections and support networks within the LGBTQIA+ community and allies.",
+  },
+  {
+    icon: Home,
+    title: "Safe Space",
+    description:
+      "Providing a secure environment where individuals can express themselves freely and authentically.",
+  },
+  {
+    icon: Shield,
+    title: "Advocacy",
+    description:
+      "Standing up for LGBTQIA+ rights and promoting positive change in society.",
+  },
+];
 const MissionSection = () => {
-  const values = [
-    {
-      icon: Heart,
-      title: "Inclusivity",
-      description: "Creating spaces where everyone feels welcomed, valued, and respected regardless of their identity."
-    },
-    {
-      icon: Users,
-      title: "Community",
-      description: "Building strong connections and support networks within the LGBTQIA+ community and allies."
-    },
-    {
-      icon: Home,
-      title: "Safe Space",
-      description: "Providing a secure environment where individuals can express themselves freely and authentically."
-    },
-    {
-      icon: Shield,
-      title: "Advocacy",
-      description: "Standing up for LGBTQIA+ rights and promoting positive change in society."
-    }
-  ];
-
   return (
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,11 +36,14 @@ const MissionSection = () => {
               Our Mission
             </h2>
             <p className="text-lg text-gray-600">
-              At Gazra, we envision a world where every individual can live authentically and proudly. Our mission is to create inclusive spaces, foster understanding, and build a stronger, more connected LGBTQIA+ community in Vadodara and beyond.
+              At Gazra, we envision a world where every individual can live
+              authentically and proudly. Our mission is to create inclusive
+              spaces, foster understanding, and build a stronger, more connected
+              LGBTQIA+ community in Vadodara and beyond.
             </p>
             <div className="grid sm:grid-cols-2 gap-6">
               {values.map((value, index) => (
-                <div 
+                <div
                   key={index}
                   className="p-6 bg-white rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300"
                 >
@@ -46,9 +51,7 @@ const MissionSection = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600">
-                    {value.description}
-                  </p>
+                  <p className="text-gray-600">{value.description}</p>
                 </div>
               ))}
             </div>
