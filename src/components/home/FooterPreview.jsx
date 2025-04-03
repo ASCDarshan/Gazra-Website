@@ -7,12 +7,15 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="flex items-center">
               <img
                 src="https://gazra.org/logo.png"
                 alt="Gazra Logo"
-                className="h-16 w-auto"
+                className="h-11 w-auto mr-2 bg-white"
               />
+              <span className="text-2xl font-bold text-primary-600">
+                Project Gazra
+              </span>
             </Link>
             <p className="text-gray-400">
               Creating an inclusive space where every individual can embrace
@@ -127,7 +130,10 @@ const Footer = () => {
             <ul className="space-y-4 text-gray-400">
               <li>
                 <p className="font-bold text-white">Address:</p>
-                <p>123 Community Street</p>
+                <p>
+                  Shree Maharani Chimnabai Stree, opp. Sursagar Lake,
+                  Udyogalaya, Mandvi
+                </p>
                 <p>Vadodara, Gujarat 390001</p>
               </li>
               <li>
@@ -149,30 +155,6 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 pt-8 pb-12">
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-xl font-bold mb-4">
-              Subscribe to Our Newsletter
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Stay updated with our latest news and events.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-primary-300 focus:border-primary-300"
-              />
-              <button
-                type="submit"
-                className="px-8 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 

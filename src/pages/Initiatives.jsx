@@ -23,6 +23,7 @@ import {
   User,
   Search,
 } from "lucide-react";
+import Gazra from "../assets/Gazra.jpg"
 
 const Brain = () => (
   <svg
@@ -414,7 +415,10 @@ const InitiativesPage = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-white relative">
+      <section
+        className="py-24 bg-white relative"
+        style={{ backgroundImage: 'url("/images/background.jpg")' }}
+      >
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent"></div>
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary-200 to-transparent"></div>
 
@@ -445,8 +449,8 @@ const InitiativesPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className={`group relative bg-white rounded-2xl p-8 border border-neutral-200 shadow-soft hover:shadow-medium transition-all duration-500 cursor-pointer overflow-hidden ${activeInitiative === initiative.id
-                    ? "ring-2 ring-primary-500 shadow-lg"
-                    : ""
+                  ? "ring-2 ring-primary-500 shadow-lg"
+                  : ""
                   }`}
                 onClick={() =>
                   setActiveInitiative(
@@ -458,8 +462,8 @@ const InitiativesPage = () => {
 
                 <span
                   className={`absolute top-6 right-6 text-xs px-3 py-1.5 rounded-full ${initiative.status === "Completed"
-                      ? "bg-success-50 text-success-700 border border-success-200/50"
-                      : "bg-info-50 text-info-700 border border-info-200/50"
+                    ? "bg-success-50 text-success-700 border border-success-200/50"
+                    : "bg-info-50 text-info-700 border border-info-200/50"
                     }`}
                 >
                   {initiative.status}
@@ -750,10 +754,10 @@ const InitiativesPage = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-gradient-to-br from-primary-50 to-transparent opacity-60"></div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-tr from-primary-50 to-transparent opacity-60"></div>
-
+      <section
+        className="py-24 bg-white relative overflow-hidden"
+        style={{ backgroundImage: 'url("/images/background.jpg")' }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -771,7 +775,7 @@ const InitiativesPage = () => {
                   className="relative rounded-2xl overflow-hidden shadow-hard"
                 >
                   <img
-                    src="/api/placeholder/640/400"
+                    src={Gazra}
                     alt="Gazra Cafe"
                     className="w-full h-full object-cover"
                   />
@@ -786,51 +790,16 @@ const InitiativesPage = () => {
                     </h3>
                   </div>
                 </motion.div>
-
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="absolute -top-12 -right-12 w-32 h-32 rounded-xl overflow-hidden shadow-medium"
-                >
-                  <img
-                    src="/api/placeholder/128/128"
-                    alt="Cafe food"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  className="absolute -bottom-12 -left-12 w-40 h-32 rounded-xl overflow-hidden shadow-medium"
-                >
-                  <img
-                    src="/api/placeholder/160/128"
-                    alt="Cafe ambience"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
               </div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="absolute bottom-4 right-4 md:bottom-8 md:right-0 bg-white rounded-xl p-6 shadow-medium max-w-xs"
+                className="absolute bottom-1/3 right-4 md:bottom-1/2 md:right-0 bg-white rounded-xl p-6 shadow-medium max-w-xs"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden">
-                    <img
-                      src="/api/placeholder/48/48"
-                      alt="Visitor"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
                   <div>
                     <div className="font-bold text-neutral-900">
                       Cafe Visitor
@@ -940,7 +909,7 @@ const InitiativesPage = () => {
                     </h3>
                     <p className="text-neutral-600">
                       Proud to have received the support of the Vadodara royal
-                      family, continuing MCSU's historic royal connections and
+                      family, continuing MCSU&apos;s historic royal connections and
                       bringing prestigious recognition to the initiative.
                     </p>
                   </div>
